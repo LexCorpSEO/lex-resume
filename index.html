@@ -1,228 +1,1014 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Kerkrit Kochduang (Lex)</title>
-    
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1a2a3a">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --primary-dark: #1a2a3a; --accent-blue: #3498db; --light-bg: #f8f9fa; --text-main: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Kanit', sans-serif; background: var(--light-bg); color: var(--text-main); line-height: 1.6; }
-        .container { max-width: 1100px; margin: 40px auto; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
-        
-        header { background: var(--primary-dark); color: #fff; padding: 50px 40px; text-align: center; }
-        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent-blue); margin-bottom: 20px; object-fit: cover; }
-        header h1 { font-size: 2.5rem; margin-bottom: 5px; }
-        .contact-info { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; margin-top: 15px; color: #d1d8e0; }
-        .contact-info span { display: flex; align-items: center; gap: 8px; }
-        
-        .content { padding: 50px 40px; }
-        section { margin-bottom: 50px; }
-        h2 { color: var(--primary-dark); border-left: 5px solid var(--accent-blue); padding-left: 15px; margin-bottom: 25px; font-size: 1.6rem; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
-        
-        .bilingual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-        .lang-th, .lang-en { font-size: 0.95rem; text-align: justify; }
-        .lang-en { color: #555; border-left: 1px solid #eee; padding-left: 20px; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kerkrit Kochdruang — Digital Marketing Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .exp-item { margin-bottom: 40px; }
-        .exp-header { margin-bottom: 15px; }
-        .job-role { font-weight: 600; font-size: 1.2rem; color: var(--accent-blue); display: block; }
-        .company { font-weight: 500; font-size: 1.1rem; color: var(--primary-dark); }
-        .duration { font-size: 0.9rem; color: #7f8c8d; font-weight: 400; display: block; margin-top: 2px; }
-        
-        /* แก้ไขระบบ List ให้ตรงเป๊ะ */
-        .work-details { padding-left: 20px; margin-top: 5px; margin-bottom: 15px; }
-        .work-details li { margin-bottom: 8px; }
-        .year-label { font-weight: 600; color: var(--primary-dark); margin-top: 10px; display: inline-block; }
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --cream: #ede8dc;
+    --red: #e94040;
+    --red-dark: #b52f2f;
+    --gold: #c8a94a;
+    --muted: #6b6560;
+    --border: rgba(13,13,13,0.12);
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Bebas Neue', sans-serif;
+  }
 
-        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .skill-list { list-style: none; padding: 0; margin: 0; }
-        .skill-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; }
-        .level { color: var(--accent-blue); font-weight: 500; font-size: 0.85rem; background: #e8f4fd; padding: 2px 10px; border-radius: 20px; }
+  html { scroll-behavior: smooth; }
 
-        @media (max-width: 850px) {
-            .container { margin: 0; border-radius: 0; }
-            .bilingual-grid, .skills-container { grid-template-columns: 1fr; gap: 25px; }
-            .lang-en { border-left: none; padding-left: 0; border-top: 1px dashed #ddd; padding-top: 15px; }
-            .content { padding: 30px 20px; }
-            header { padding: 40px 20px; }
-        }
-    </style>
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .5;
+  }
+
+  /* ── SIDE NAV ── */
+  .sidenav {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 220px;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    padding: 48px 0 32px;
+    z-index: 100;
+    border-right: 3px solid var(--red);
+  }
+
+  .sidenav-name {
+    font-family: var(--display);
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--paper);
+    padding: 0 28px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .sidenav-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    padding: 0 28px;
+    margin-bottom: 40px;
+  }
+
+  .sidenav-links {
+    list-style: none;
+    flex: 1;
+  }
+
+  .sidenav-links li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 28px;
+    color: rgba(245,240,232,0.55);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all .2s;
+    border-left: 3px solid transparent;
+  }
+
+  .sidenav-links li a:hover,
+  .sidenav-links li a.active {
+    color: var(--paper);
+    border-left-color: var(--red);
+    background: rgba(233,64,64,0.08);
+  }
+
+  .sidenav-links li a .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .sidenav-foot {
+    padding: 0 28px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: rgba(245,240,232,0.3);
+    line-height: 1.8;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    margin-left: 220px;
+    min-height: 100vh;
+  }
+
+  section {
+    padding: 80px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #hero::after {
+    content: 'DIGITAL';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: var(--display);
+    font-size: 180px;
+    color: rgba(13,13,13,0.04);
+    pointer-events: none;
+    white-space: nowrap;
+    letter-spacing: 10px;
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  h1.hero-name {
+    font-family: var(--display);
+    font-size: clamp(72px, 10vw, 128px);
+    line-height: .92;
+    letter-spacing: 3px;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  h1.hero-name span {
+    display: block;
+    color: var(--red);
+  }
+
+  .hero-bio {
+    max-width: 520px;
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-num {
+    font-family: var(--display);
+    font-size: 48px;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-num sup {
+    font-size: 20px;
+    color: var(--red);
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-contacts {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: all .2s;
+    background: white;
+  }
+
+  .contact-pill:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  .contact-pill svg { flex-shrink: 0; }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: 56px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 48px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-grid {
+    display: grid;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 32px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-left {
+    padding-top: 4px;
+  }
+
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .exp-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    background: var(--cream);
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .exp-right h3 {
+    font-family: var(--display);
+    font-size: 32px;
+    letter-spacing: 1px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .exp-right p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-size: 12px;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--ink); color: var(--paper); }
+  #skills .section-label { color: var(--red); }
+  #skills h2.section-title { color: var(--paper); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+
+  .skill-category h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(245,240,232,0.1);
+  }
+
+  .skill-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    gap: 16px;
+  }
+
+  .skill-name {
+    font-size: 13px;
+    color: rgba(245,240,232,0.75);
+    white-space: nowrap;
+    min-width: 130px;
+  }
+
+  .skill-bar-wrap {
+    flex: 1;
+    height: 3px;
+    background: rgba(245,240,232,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-bar {
+    height: 100%;
+    background: var(--red);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(.16,1,.3,1);
+  }
+
+  .skill-bar.animated { transform: scaleX(1); }
+
+  .skill-level {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(245,240,232,0.35);
+    white-space: nowrap;
+  }
+
+  /* ── TOOLS BADGES ── */
+  .tools-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .tool-badge {
+    padding: 7px 16px;
+    border: 1px solid rgba(245,240,232,0.15);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(245,240,232,0.6);
+    letter-spacing: 1px;
+    transition: all .2s;
+    cursor: default;
+  }
+
+  .tool-badge:hover {
+    border-color: var(--red);
+    color: var(--paper);
+    background: rgba(233,64,64,0.08);
+  }
+
+  .tool-badge.highlight {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .edu-card {
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+
+  .edu-card:hover { border-color: var(--red); }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--red);
+  }
+
+  .edu-year {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .edu-deg {
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .edu-gpa {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: var(--cream);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+  }
+
+  .edu-gpa strong { color: var(--red); }
+
+  /* ── HOBBIES ── */
+  .hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .hobby-card {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    transition: all .25s;
+    cursor: default;
+    background: white;
+  }
+
+  .hobby-card:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    transform: translateY(-4px);
+  }
+
+  .hobby-card:hover .hobby-label { color: var(--paper); }
+  .hobby-card:hover .hobby-icon { filter: none; opacity: 1; }
+
+  .hobby-icon { font-size: 32px; opacity: .7; }
+  .hobby-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: var(--mono);
+    transition: color .25s;
+  }
+
+  /* ── CONTACT CTA ── */
+  #contact {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  #contact .section-label { color: rgba(255,255,255,.6); }
+  #contact .section-label::after { background: rgba(255,255,255,.4); }
+  #contact h2.section-title { color: white; font-size: 72px; margin-bottom: 24px; }
+
+  #contact p {
+    font-size: 16px;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 40px;
+  }
+
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    padding: 14px 32px;
+    border: 2px solid white;
+    border-radius: 2px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    transition: all .2s;
+    background: transparent;
+  }
+
+  .cta-btn:hover,
+  .cta-btn.filled {
+    background: white;
+    color: var(--red);
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .sidenav { display: none; }
+    main { margin-left: 0; }
+    section, #hero { padding: 60px 32px; }
+    .skills-grid, .edu-grid { grid-template-columns: 1fr; }
+    .hobby-grid { grid-template-columns: repeat(2, 1fr); }
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    h2.section-title { font-size: 40px; }
+    #contact h2.section-title { font-size: 48px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <img src="https://via.placeholder.com/160" alt="Kerkrit Kochduang" class="profile-img">
-        <h1>Kerkrit Kochduang (Lex)</h1>
-        <div class="contact-info">
-            <span><i class="fas fa-phone"></i> 063-889-9953</span>
-            <span><i class="fas fa-envelope"></i> kerkrit.k@hotmail.com</span>
-            <span><i class="fas fa-map-marker-alt"></i> Samut Prakan, Thailand</span>
-        </div>
-    </header>
+<!-- SIDE NAV -->
+<nav class="sidenav">
+  <div class="sidenav-name">Kerkrit<br>Koch<br>druang</div>
+  <div class="sidenav-title">Digital Marketing</div>
+  <ul class="sidenav-links">
+    <li><a href="#hero" class="active"><span class="dot"></span>Home</a></li>
+    <li><a href="#experience"><span class="dot"></span>Experience</a></li>
+    <li><a href="#skills"><span class="dot"></span>Skills</a></li>
+    <li><a href="#education"><span class="dot"></span>Education</a></li>
+    <li><a href="#hobbies"><span class="dot"></span>Interests</a></li>
+    <li><a href="#contact"><span class="dot"></span>Contact</a></li>
+  </ul>
+  <div class="sidenav-foot">
+    © 2024 Kerkrit K.<br>
+    Samut Prakan, TH
+  </div>
+</nav>
 
-    <div class="content">
-        <section>
-            <h2><i class="fas fa-user-tie"></i> Profile / ข้อมูลส่วนตัว</h2>
-            <div class="bilingual-grid">
-                <div class="lang-th">
-                    หัวหน้าทีมการตลาดดิจิทัลที่มีประสบการณ์ 9 ปี ในการขับเคลื่อนกลยุทธ์การตลาดที่มีประสิทธิภาพ เชี่ยวชาญในการจัดการสื่อดิจิทัลและดำเนินแคมเปญเพื่อเพิ่มการมองเห็นแบรนด์และการมีส่วนร่วมของผู้บริโภค มีความสามารถในการใช้เครื่องมือวิเคราะห์ (Analytics) เพื่อเพิ่มประสิทธิภาพบนโลกออนไลน์ ปรับปรุง SEO และใช้โซเชียลมีเดียเพื่อการส่งเสริมการขายที่ตรงกลุ่มเป้าหมาย
-                </div>
-                <div class="lang-en">
-                    Dynamic Digital Marketing Team Leader with 9 years of experience in driving impactful marketing strategies. Expertise in managing digital media operations and executing successful campaigns that enhance brand visibility and consumer engagement. Proficient in utilizing analytics to optimize online presence, improve SEO, and leverage social media for targeted promotions.
-                </div>
-            </div>
-        </section>
+<!-- MAIN -->
+<main>
 
-        <section>
-            <h2><i class="fas fa-briefcase"></i> Employment History / ประสบการณ์ทำงาน</h2>
-            
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="job-role">Digital Marketing Team Leader</span>
-                    <span class="company">CRC Thai Watsadu Company Limited</span>
-                    <span class="duration">2021 - Present (Bangkok)</span>
-                </div>
-                <div class="bilingual-grid">
-                    <div class="lang-th">
-                        <span class="year-label">ปี 2023:</span>
-                        <ul class="work-details">
-                            <li>เป็นผู้นำในการผลิตเนื้อหาสื่อแบบ Omni-channel สำหรับเว็บไซต์และแอปพลิเคชันมือถือของ Thai Watsadu และ BnB Home</li>
-                            <li>จัดการระบบบริหารจัดการเนื้อหา (CMS) สำหรับสื่อออนไลน์ทั้งหมด รวมถึงหน้า Landing Page บทความ และโปรโมชั่น</li>
-                            <li>ดำเนินแคมเปญการตลาดเพื่อเพิ่มการมองเห็นผลิตภัณฑ์ผ่าน Google Ads และปรับปรุงกลยุทธ์ SEO</li>
-                        </ul>
-                        <span class="year-label">ปี 2022:</span>
-                        <ul class="work-details">
-                            <li>ขยายความรับผิดชอบครอบคลุมการผลิตวิดีโอสร้างสรรค์สำหรับ Gowow บน TikTok</li>
-                        </ul>
-                        <span class="year-label">ปี 2021:</span>
-                        <ul class="work-details">
-                            <li>ผลิตและจัดการเนื้อหาสื่อออนไลน์ผ่านช่องทางต่างๆ รวมถึงเว็บไซต์, Facebook, Instagram และ LINE</li>
-                        </ul>
-                    </div>
-                    <div class="lang-en">
-                        <span class="year-label">2023:</span>
-                        <ul class="work-details">
-                            <li>Led the production of omni-channel media content for Thai Watsadu and BnB Home websites and mobile applications.</li>
-                            <li>Managed the Content Management System (CMS) for all online media, including landing pages, articles, and promotional content.</li>
-                            <li>Executed marketing campaigns to enhance product visibility through Google Ads and improved SEO strategies.</li>
-                        </ul>
-                        <span class="year-label">2022:</span>
-                        <ul class="work-details">
-                            <li>Expanded responsibilities to include creative video production for Gowow on TikTok.</li>
-                        </ul>
-                        <span class="year-label">2021:</span>
-                        <ul class="work-details">
-                            <li>Produced and managed online media content across channels including website, Facebook, Instagram, and LINE.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="job-role">Digital Marketing and Media Services</span>
-                    <span class="company">Olino Premium Foods Company Limited</span>
-                    <span class="duration">2019 - 2021 (Bangkok)</span>
-                </div>
-                <div class="bilingual-grid">
-                    <div class="lang-th">
-                        <ul class="work-details">
-                            <li>จัดการและผลิตสื่อการตลาดสำหรับทั้งช่องทางออนไลน์และออฟไลน์</li>
-                            <li>สร้างเนื้อหาโฆษณาและออกแบบสื่อ รวมถึงการถ่ายภาพ การถ่ายทำวิดีโอ และการตัดต่อ</li>
-                            <li>ดำเนินกลยุทธ์การตลาดโซเชียลมีเดียและทำ SEO เพื่อเพิ่มการมองเห็นออนไลน์</li>
-                            <li>ใช้ Facebook Ads และ Google Ads เพื่อหาลูกค้าใหม่ทั้งกลุ่มรีเทลและกลุ่มแฟรนไชส์</li>
-                        </ul>
-                    </div>
-                    <div class="lang-en">
-                        <ul class="work-details">
-                            <li>Managed and produced marketing materials for both online and offline channels.</li>
-                            <li>Created advertising content and designed media including photography, videography, and video editing.</li>
-                            <li>Executed social media marketing strategies and implemented SEO to increase online visibility.</li>
-                            <li>Utilized Facebook Ads and Google Ads to acquire retail and franchise prospects.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="job-role">Digital Media Coordinator (Contract-based)</span>
-                    <span class="company">Procter & Gamble Trading (Thailand) Ltd.</span>
-                    <span class="duration">2018 - 2019 (Bangkok)</span>
-                </div>
-                <div class="bilingual-grid">
-                    <div class="lang-th">
-                        <ul class="work-details">
-                            <li>ดูแลการดำเนินงานสื่อดิจิทัลทั้งหมดสำหรับแบรนด์ Olay รวมถึงการวางแผนแคมเปญ และการติดตามผลการดำเนินงาน</li>
-                            <li>จัดการช่องทางส่งเสริมการขายแบบ B2C เช่น Facebook, Instagram, YouTube และโฆษณา Display</li>
-                            <li>สนับสนุนการพัฒนาและดำเนินกลยุทธ์โซเชียลมีเดียและการตลาดผ่านอินฟลูเอนเซอร์</li>
-                        </ul>
-                    </div>
-                    <div class="lang-en">
-                        <ul class="work-details">
-                            <li>Oversaw all digital media operations for the Olay brand, including campaign planning and performance monitoring.</li>
-                            <li>Managed B2C promotional channels such as Facebook, Instagram, YouTube, and display ads.</li>
-                            <li>Supported the development and execution of social media and influencer marketing strategies.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-star"></i> Skills / ทักษะความเชี่ยวชาญ</h2>
-            <div class="skills-container">
-                <ul class="skill-list">
-                    <li><span>Leadership / การเป็นผู้นำ</span> <span class="level">Experienced</span></li>
-                    <li><span>Communication / การสื่อสาร</span> <span class="level">Experienced</span></li>
-                    <li><span>Adobe Illustrator</span> <span class="level">Experienced</span></li>
-                    <li><span>Adobe Photoshop</span> <span class="level">Skillful</span></li>
-                    <li><span>Adobe Premiere Pro</span> <span class="level">Experienced</span></li>
-                    <li><span>Final Cut Pro</span> <span class="level">Skillful</span></li>
-                </ul>
-                <ul class="skill-list">
-                    <li><span>Canva</span> <span class="level">Experienced</span></li>
-                    <li><span>HTML / CSS / JavaScript</span> <span class="level">Experienced</span></li>
-                    <li><span>Microsoft Excel</span> <span class="level">Skillful</span></li>
-                    <li><span>MS PowerPoint</span> <span class="level">Experienced</span></li>
-                    <li><span>MS Word</span> <span class="level">Expert</span></li>
-                    <li><span>SEO & Google Analytics</span> <span class="level">Proficient</span></li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-graduation-cap"></i> Education / การศึกษา</h2>
-            <div class="bilingual-grid">
-                <div class="lang-th">
-                    <strong>ปริญญาตรี ครุศาสตร์อุตสาหกรรม (เกียรตินิยมอันดับ 2)</strong><br>
-                    มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี (2012-2016)<br>
-                    เกรดเฉลี่ย: 3.33<br>
-                    โปรเจกต์จบการศึกษา: พัฒนาแอปพลิเคชันเพื่อการศึกษาสำหรับนักเรียนชั้นประถมศึกษาปีที่ 1
-                </div>
-                <div class="lang-en">
-                    <strong>Bachelor of Education (Industrial Education) - 2nd Class Honors</strong><br>
-                    Rajamangala University of Technology Thanyaburi (2012-2016)<br>
-                    GPA: 3.33<br>
-                    Graduation Project: Developed an educational application for Grade 1 students.
-                </div>
-            </div>
-        </section>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">Digital Marketing Leader</div>
+    <h1 class="hero-name">
+      Kerkrit
+      <span>Koch<br>druang</span>
+    </h1>
+    <p class="hero-bio">
+      Dynamic Digital Marketing Team Leader with 9 years of experience driving impactful strategies, creating engaging multimedia content, and building brand visibility across every major platform.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">9<sup>+</sup></div>
+        <div class="stat-label">Years Exp.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Major Brands</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10<sup>+</sup></div>
+        <div class="stat-label">Platforms</div>
+      </div>
     </div>
-</div>
+    <div class="hero-contacts">
+      <a class="contact-pill" href="mailto:kerkrit.k@hotmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+        kerkrit.k@hotmail.com
+      </a>
+      <a class="contact-pill" href="tel:0638899953">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92Z"/></svg>
+        063-889-9953
+      </a>
+      <a class="contact-pill" href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Samut Prakan, Thailand
+      </a>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Work History</div>
+    <h2 class="section-title">EXPERIENCE</h2>
+
+    <div class="exp-grid">
+
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2021 — Present</div>
+          <div class="exp-company">CRC Thai Watsadu Co., Ltd.</div>
+          <span class="exp-tag">Current Role</span>
+        </div>
+        <div class="exp-right">
+          <h3>Digital Marketing<br>Team Leader</h3>
+          <ul class="exp-bullets">
+            <li>Produced and managed online media across BnB Home website, Facebook, Instagram, and LINE.</li>
+            <li>Created video content and collaborated with influencers and suppliers for brand campaigns.</li>
+            <li>Led omni-channel media production for Thai Watsadu and BnB Home web & mobile apps.</li>
+            <li>Managed CMS — landing pages, articles, and promotional content.</li>
+            <li>Executed Google Ads and advanced SEO strategies for e-commerce visibility.</li>
+            <li>Expanded to TikTok creative video production for the Gowow brand in 2022.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2019 — 2021</div>
+          <div class="exp-company">Olino Premium Foods Co., Ltd.</div>
+        </div>
+        <div class="exp-right">
+          <h3>Digital Marketing &<br>Media Services</h3>
+          <ul class="exp-bullets">
+            <li>Managed and produced marketing materials for online and offline channels.</li>
+            <li>Created advertising content — photography, videography, and video editing.</li>
+            <li>Executed SMM strategies and SEO to increase online visibility.</li>
+            <li>Used Facebook Ads & Google Ads to acquire retail and franchise customers.</li>
+            <li>Coordinated campaigns with LINE MAN, Grab, Foodpanda, and GET.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2018 — 2019</div>
+          <div class="exp-company">Procter &amp; Gamble Thailand</div>
+          <span class="exp-tag">Contract · 1 yr</span>
+        </div>
+        <div class="exp-right">
+          <h3>Digital Media<br>Coordinator</h3>
+          <ul class="exp-bullets">
+            <li>Oversaw all digital media operations for the Olay brand — campaign planning, content, and performance monitoring.</li>
+            <li>Managed B2C channels: Facebook, Instagram, YouTube, and display ads aligned with global P&G guidelines.</li>
+            <li>Maintained confidentiality for brand ambassadors and sensitive campaign materials.</li>
+            <li>Supported influencer marketing strategies to boost product awareness and consumer engagement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2016 — 2018</div>
+          <div class="exp-company">Oishi Group Public Co., Ltd.</div>
+        </div>
+        <div class="exp-right">
+          <h3>Digital Marketing &<br>Media Services</h3>
+          <ul class="exp-bullets">
+            <li>Produced marketing media — photography, videography, and video editing.</li>
+            <li>Managed and created social media accounts for OISHI and EST brands.</li>
+            <li>Created educational media for cooking tutorials under OISHI FOOD group.</li>
+            <li>Increased followers and click-through rates to meet campaign goals.</li>
+            <li>Executed SMM strategies and SEO for oishifood.com.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">SKILLS</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-category reveal">
+        <h4>Creative & Design</h4>
+
+        <div class="skill-row">
+          <span class="skill-name">Adobe Illustrator</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Adobe Photoshop</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+          <span class="skill-level">Skillful</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Adobe Premiere</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Final Cut Pro</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+          <span class="skill-level">Skillful</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Canva</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <h4>Leadership & Communication</h4>
+
+        <div class="skill-row">
+          <span class="skill-name">Leadership</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Communication</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Microsoft Word</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+          <span class="skill-level">Expert ★</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">PowerPoint</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Microsoft Excel</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+          <span class="skill-level">Skillful</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <h4>Digital Marketing</h4>
+
+        <div class="skill-row">
+          <span class="skill-name">SEO</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Google Ads</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Facebook Ads</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">CMS Management</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">HTML / CSS / JS</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div>
+          <span class="skill-level">Experienced</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <h4>Platforms & Tools</h4>
+        <div class="tools-wrap">
+          <span class="tool-badge highlight">Facebook</span>
+          <span class="tool-badge highlight">Instagram</span>
+          <span class="tool-badge highlight">TikTok</span>
+          <span class="tool-badge highlight">YouTube</span>
+          <span class="tool-badge">LINE</span>
+          <span class="tool-badge">LINE MAN</span>
+          <span class="tool-badge">Grab</span>
+          <span class="tool-badge">Foodpanda</span>
+          <span class="tool-badge">Google Ads</span>
+          <span class="tool-badge">Facebook Ads</span>
+          <span class="tool-badge">CMS</span>
+          <span class="tool-badge">E-commerce</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">EDUCATION</h2>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-year">2012 — 2016</div>
+        <div class="edu-deg">Bachelor of<br>Education</div>
+        <div class="edu-school">Rajamangala University of Technology Thanyaburi, Pathum Thani<br><em style="font-size:12px;color:var(--muted)">Industrial Education</em></div>
+        <div class="edu-gpa">GPA <strong>3.33</strong></div>
+        <p style="margin-top:16px;font-size:13px;color:var(--muted);line-height:1.6;">
+          Graduation Project: Developed an educational application for Grade 1 students — bridging education and technology.
+        </p>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-year">2005 — 2011</div>
+        <div class="edu-deg">High School<br>Diploma</div>
+        <div class="edu-school">Suankularb Wittayalai Saraburi School, Saraburi</div>
+        <div class="edu-gpa">GPA <strong>2.85</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <div class="section-label">Personal Life</div>
+    <h2 class="section-title">INTERESTS</h2>
+
+    <div class="hobby-grid">
+      <div class="hobby-card reveal">
+        <div class="hobby-icon">📷</div>
+        <div class="hobby-label">Photography</div>
+      </div>
+      <div class="hobby-card reveal">
+        <div class="hobby-icon">✈️</div>
+        <div class="hobby-label">Travel</div>
+      </div>
+      <div class="hobby-card reveal">
+        <div class="hobby-icon">🍳</div>
+        <div class="hobby-label">Cooking</div>
+      </div>
+      <div class="hobby-card reveal">
+        <div class="hobby-icon">🎨</div>
+        <div class="hobby-label">Design</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">LET'S<br>WORK.</h2>
+    <p>Ready to bring innovative digital marketing solutions to elevate your brand's success.</p>
+    <div class="cta-links">
+      <a class="cta-btn filled" href="mailto:kerkrit.k@hotmail.com">Email Me</a>
+      <a class="cta-btn" href="tel:0638899953">063-889-9953</a>
+    </div>
+  </section>
+
+</main>
 
 <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.sidenav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(r => revealObs.observe(r));
+
+  // Animate skill bars when skills section visible
+  const skillBars = document.querySelectorAll('.skill-bar');
+  const skillSection = document.getElementById('skills');
+
+  const skillObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      skillBars.forEach((bar, i) => {
+        setTimeout(() => bar.classList.add('animated'), i * 60);
+      });
+      skillObs.unobserve(skillSection);
     }
+  }, { threshold: 0.2 });
+
+  skillObs.observe(skillSection);
 </script>
 </body>
 </html>
