@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>Kerkrit Kochdruang</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -11,16 +11,21 @@
   --ink:#0d0d0d;--paper:#f5f0e8;--cream:#ede8dc;
   --red:#e94040;--gold:#c8a94a;--muted:#6b6560;
   --border:rgba(13,13,13,0.11);--nav-w:224px;
+  --topbar-h:54px;
   --mono:'DM Mono',monospace;
   --sans:'DM Sans','Sarabun',sans-serif;
   --display:'Bebas Neue',sans-serif;
 }
 html{scroll-behavior:auto}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;overflow:hidden;height:100vh}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
+
+/* ── NAV BACKDROP (mobile) ── */
+.nav-backdrop{display:none;position:fixed;inset:0;background:rgba(13,13,13,.5);z-index:150;-webkit-tap-highlight-color:transparent}
+.nav-backdrop.show{display:block}
 
 /* ── TOPBAR mobile ── */
-.topbar{display:none;position:fixed;top:0;left:0;right:0;height:54px;background:var(--ink);align-items:center;justify-content:space-between;padding:0 18px;z-index:300;border-bottom:2px solid var(--red)}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:var(--ink);align-items:center;justify-content:space-between;padding:0 18px;padding-top:env(safe-area-inset-top);z-index:300;border-bottom:2px solid var(--red)}
 .topbar-name{font-family:var(--display);font-size:18px;color:var(--paper);letter-spacing:2px}
 .topbar-right{display:flex;align-items:center;gap:12px}
 .burger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px}
@@ -228,8 +233,8 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   .topbar{display:flex}
   .sidenav{transform:translateX(-100%)}
   .sidenav.open{transform:none}
-  .app{margin-left:0;padding-top:54px}
-  .page{padding:44px 22px 60px}
+  .app{margin-left:0}
+  .page{padding:calc(var(--topbar-h) + 20px) 22px 80px;-webkit-overflow-scrolling:touch;touch-action:pan-y}
   .exp-item{grid-template-columns:1fr;gap:8px}
   .skills-cols{grid-template-columns:1fr;gap:32px}
   .skills-bg{padding:32px 22px}
@@ -239,6 +244,8 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   .vgrid{grid-template-columns:1fr}
   .cgrid{grid-template-columns:repeat(2,1fr)}
   h2.sec-title{margin-bottom:28px}
+  /* prevent tap highlight flash on iOS */
+  a,button,.mitem,.ccard,.fbtn,.pill{-webkit-tap-highlight-color:transparent}
 }
 @media(max-width:500px){
   .masonry{columns:1}
@@ -255,6 +262,9 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
     <button class="burger" id="burger"><span></span><span></span><span></span></button>
   </div>
 </div>
+
+<!-- NAV BACKDROP -->
+<div class="nav-backdrop" id="navBackdrop"></div>
 
 <!-- SIDENAV -->
 <nav class="sidenav" id="sidenav">
@@ -724,8 +734,7 @@ function goTo(id) {
   document.querySelectorAll('.nav-links a[data-page]').forEach(a =>
     a.classList.toggle('active', a.dataset.page === id));
 
-  document.getElementById('sidenav').classList.remove('open');
-  document.getElementById('burger').classList.remove('open');
+  closeNav();
   history.pushState(null,'','#'+id);
 }
 
@@ -748,11 +757,31 @@ window.addEventListener('popstate', () => {
   }
 });
 
-// ── BURGER ──
-document.getElementById('burger').addEventListener('click', function(){
-  this.classList.toggle('open');
-  document.getElementById('sidenav').classList.toggle('open');
+// ── BURGER & BACKDROP ──
+const burger = document.getElementById('burger');
+const sidenav = document.getElementById('sidenav');
+const backdrop = document.getElementById('navBackdrop');
+
+function openNav() {
+  sidenav.classList.add('open');
+  burger.classList.add('open');
+  backdrop.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNav() {
+  sidenav.classList.remove('open');
+  burger.classList.remove('open');
+  backdrop.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+burger.addEventListener('click', () => {
+  sidenav.classList.contains('open') ? closeNav() : openNav();
 });
+
+backdrop.addEventListener('click', closeNav);
+backdrop.addEventListener('touchstart', closeNav, {passive:true});
 
 // ── SKILL BARS ──
 let skillsDone = false;
