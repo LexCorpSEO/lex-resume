@@ -1,1014 +1,814 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kerkrit Kochdruang — Digital Marketing Leader</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kerkrit Kochdruang</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --ink: #0d0d0d;
-    --paper: #f5f0e8;
-    --cream: #ede8dc;
-    --red: #e94040;
-    --red-dark: #b52f2f;
-    --gold: #c8a94a;
-    --muted: #6b6560;
-    --border: rgba(13,13,13,0.12);
-    --mono: 'DM Mono', monospace;
-    --sans: 'DM Sans', sans-serif;
-    --display: 'Bebas Neue', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 15px;
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-
-  /* ── NOISE TEXTURE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: .5;
-  }
-
-  /* ── SIDE NAV ── */
-  .sidenav {
-    position: fixed;
-    left: 0; top: 0; bottom: 0;
-    width: 220px;
-    background: var(--ink);
-    color: var(--paper);
-    display: flex;
-    flex-direction: column;
-    padding: 48px 0 32px;
-    z-index: 100;
-    border-right: 3px solid var(--red);
-  }
-
-  .sidenav-name {
-    font-family: var(--display);
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: var(--paper);
-    padding: 0 28px;
-    line-height: 1.1;
-    margin-bottom: 4px;
-  }
-
-  .sidenav-title {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--red);
-    padding: 0 28px;
-    margin-bottom: 40px;
-  }
-
-  .sidenav-links {
-    list-style: none;
-    flex: 1;
-  }
-
-  .sidenav-links li a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 11px 28px;
-    color: rgba(245,240,232,0.55);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: all .2s;
-    border-left: 3px solid transparent;
-  }
-
-  .sidenav-links li a:hover,
-  .sidenav-links li a.active {
-    color: var(--paper);
-    border-left-color: var(--red);
-    background: rgba(233,64,64,0.08);
-  }
-
-  .sidenav-links li a .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-    flex-shrink: 0;
-  }
-
-  .sidenav-foot {
-    padding: 0 28px;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: rgba(245,240,232,0.3);
-    line-height: 1.8;
-  }
-
-  /* ── MAIN LAYOUT ── */
-  main {
-    margin-left: 220px;
-    min-height: 100vh;
-  }
-
-  section {
-    padding: 80px 64px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 80px 64px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  #hero::after {
-    content: 'DIGITAL';
-    position: absolute;
-    right: -30px;
-    top: 50%;
-    transform: translateY(-50%) rotate(90deg);
-    font-family: var(--display);
-    font-size: 180px;
-    color: rgba(13,13,13,0.04);
-    pointer-events: none;
-    white-space: nowrap;
-    letter-spacing: 10px;
-  }
-
-  .hero-tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .hero-tag::before {
-    content: '';
-    width: 40px;
-    height: 1px;
-    background: var(--red);
-  }
-
-  h1.hero-name {
-    font-family: var(--display);
-    font-size: clamp(72px, 10vw, 128px);
-    line-height: .92;
-    letter-spacing: 3px;
-    color: var(--ink);
-    margin-bottom: 32px;
-  }
-
-  h1.hero-name span {
-    display: block;
-    color: var(--red);
-  }
-
-  .hero-bio {
-    max-width: 520px;
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 40px;
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 48px;
-  }
-
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .stat-num {
-    font-family: var(--display);
-    font-size: 48px;
-    color: var(--ink);
-    line-height: 1;
-  }
-
-  .stat-num sup {
-    font-size: 20px;
-    color: var(--red);
-  }
-
-  .stat-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .hero-contacts {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .contact-pill {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink);
-    text-decoration: none;
-    transition: all .2s;
-    background: white;
-  }
-
-  .contact-pill:hover {
-    border-color: var(--red);
-    color: var(--red);
-  }
-
-  .contact-pill svg { flex-shrink: 0; }
-
-  /* ── SECTION HEADERS ── */
-  .section-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    max-width: 60px;
-    height: 1px;
-    background: var(--red);
-  }
-
-  h2.section-title {
-    font-family: var(--display);
-    font-size: 56px;
-    letter-spacing: 2px;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 48px;
-  }
-
-  /* ── EXPERIENCE ── */
-  .exp-grid {
-    display: grid;
-    gap: 0;
-  }
-
-  .exp-item {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 32px;
-    padding: 40px 0;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-
-  .exp-item:last-child { border-bottom: none; }
-
-  .exp-left {
-    padding-top: 4px;
-  }
-
-  .exp-period {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-
-  .exp-company {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-
-  .exp-tag {
-    display: inline-block;
-    padding: 2px 10px;
-    background: var(--cream);
-    border-radius: 100px;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 8px;
-  }
-
-  .exp-right h3 {
-    font-family: var(--display);
-    font-size: 32px;
-    letter-spacing: 1px;
-    color: var(--ink);
-    margin-bottom: 16px;
-    line-height: 1.1;
-  }
-
-  .exp-right p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 16px;
-    line-height: 1.7;
-  }
-
-  .exp-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .exp-bullets li {
-    font-size: 14px;
-    color: var(--muted);
-    padding-left: 18px;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .exp-bullets li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--red);
-    font-size: 12px;
-  }
-
-  /* ── SKILLS ── */
-  #skills { background: var(--ink); color: var(--paper); }
-  #skills .section-label { color: var(--red); }
-  #skills h2.section-title { color: var(--paper); }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px;
-  }
-
-  .skill-category h4 {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(245,240,232,0.1);
-  }
-
-  .skill-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
-    gap: 16px;
-  }
-
-  .skill-name {
-    font-size: 13px;
-    color: rgba(245,240,232,0.75);
-    white-space: nowrap;
-    min-width: 130px;
-  }
-
-  .skill-bar-wrap {
-    flex: 1;
-    height: 3px;
-    background: rgba(245,240,232,0.1);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .skill-bar {
-    height: 100%;
-    background: var(--red);
-    border-radius: 2px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 1s cubic-bezier(.16,1,.3,1);
-  }
-
-  .skill-bar.animated { transform: scaleX(1); }
-
-  .skill-level {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: rgba(245,240,232,0.35);
-    white-space: nowrap;
-  }
-
-  /* ── TOOLS BADGES ── */
-  .tools-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  .tool-badge {
-    padding: 7px 16px;
-    border: 1px solid rgba(245,240,232,0.15);
-    border-radius: 4px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: rgba(245,240,232,0.6);
-    letter-spacing: 1px;
-    transition: all .2s;
-    cursor: default;
-  }
-
-  .tool-badge:hover {
-    border-color: var(--red);
-    color: var(--paper);
-    background: rgba(233,64,64,0.08);
-  }
-
-  .tool-badge.highlight {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-
-  /* ── EDUCATION ── */
-  .edu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .edu-card {
-    padding: 32px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    background: white;
-    position: relative;
-    overflow: hidden;
-    transition: border-color .2s;
-  }
-
-  .edu-card:hover { border-color: var(--red); }
-
-  .edu-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: var(--red);
-  }
-
-  .edu-year {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
-
-  .edu-deg {
-    font-family: var(--display);
-    font-size: 22px;
-    letter-spacing: 1px;
-    color: var(--ink);
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  .edu-school {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 16px;
-  }
-
-  .edu-gpa {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    background: var(--cream);
-    border-radius: 100px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink);
-  }
-
-  .edu-gpa strong { color: var(--red); }
-
-  /* ── HOBBIES ── */
-  .hobby-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-
-  .hobby-card {
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    transition: all .25s;
-    cursor: default;
-    background: white;
-  }
-
-  .hobby-card:hover {
-    background: var(--ink);
-    border-color: var(--ink);
-    transform: translateY(-4px);
-  }
-
-  .hobby-card:hover .hobby-label { color: var(--paper); }
-  .hobby-card:hover .hobby-icon { filter: none; opacity: 1; }
-
-  .hobby-icon { font-size: 32px; opacity: .7; }
-  .hobby-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-family: var(--mono);
-    transition: color .25s;
-  }
-
-  /* ── CONTACT CTA ── */
-  #contact {
-    background: var(--red);
-    color: white;
-    text-align: center;
-    border-bottom: none;
-  }
-
-  #contact .section-label { color: rgba(255,255,255,.6); }
-  #contact .section-label::after { background: rgba(255,255,255,.4); }
-  #contact h2.section-title { color: white; font-size: 72px; margin-bottom: 24px; }
-
-  #contact p {
-    font-size: 16px;
-    color: rgba(255,255,255,.8);
-    margin-bottom: 40px;
-  }
-
-  .cta-links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .cta-btn {
-    padding: 14px 32px;
-    border: 2px solid white;
-    border-radius: 2px;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: white;
-    text-decoration: none;
-    transition: all .2s;
-    background: transparent;
-  }
-
-  .cta-btn:hover,
-  .cta-btn.filled {
-    background: white;
-    color: var(--red);
-  }
-
-  /* ── SCROLL ANIMATION ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .sidenav { display: none; }
-    main { margin-left: 0; }
-    section, #hero { padding: 60px 32px; }
-    .skills-grid, .edu-grid { grid-template-columns: 1fr; }
-    .hobby-grid { grid-template-columns: repeat(2, 1fr); }
-    .exp-item { grid-template-columns: 1fr; gap: 12px; }
-    h2.section-title { font-size: 40px; }
-    #contact h2.section-title { font-size: 48px; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0d0d0d;--paper:#f5f0e8;--cream:#ede8dc;
+  --red:#e94040;--gold:#c8a94a;--muted:#6b6560;
+  --border:rgba(13,13,13,0.11);--nav-w:224px;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans','Sarabun',sans-serif;
+  --display:'Bebas Neue',sans-serif;
+}
+html{scroll-behavior:auto}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;overflow:hidden;height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5}
+
+/* ── TOPBAR mobile ── */
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:54px;background:var(--ink);align-items:center;justify-content:space-between;padding:0 18px;z-index:300;border-bottom:2px solid var(--red)}
+.topbar-name{font-family:var(--display);font-size:18px;color:var(--paper);letter-spacing:2px}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.burger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px}
+.burger span{display:block;width:20px;height:2px;background:var(--paper);transition:all .25s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── SIDENAV ── */
+.sidenav{
+  position:fixed;left:0;top:0;bottom:0;width:var(--nav-w);
+  background:var(--ink);display:flex;flex-direction:column;
+  padding:44px 0 28px;z-index:200;
+  border-right:3px solid var(--red);
+  transition:transform .3s cubic-bezier(.16,1,.3,1);
+}
+.sidenav-logo{padding:0 26px;margin-bottom:36px}
+.sidenav-name{font-family:var(--display);font-size:25px;letter-spacing:2px;color:var(--paper);line-height:1.05}
+.sidenav-sub{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-top:4px}
+
+.nav-links{list-style:none;flex:1;overflow-y:auto}
+.nav-section-label{padding:18px 26px 6px;font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.18)}
+.nav-links li a{
+  display:flex;align-items:center;gap:10px;padding:10px 26px;
+  color:rgba(245,240,232,.42);text-decoration:none;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  transition:all .2s;border-left:3px solid transparent;cursor:pointer
+}
+.nav-links li a:hover{color:rgba(245,240,232,.8);background:rgba(255,255,255,.04)}
+.nav-links li a.active{color:var(--paper);border-left-color:var(--red);background:rgba(233,64,64,.08)}
+.nav-links li a .nicon{font-size:13px;width:18px;text-align:center}
+
+/* lang toggle in nav */
+.lang-toggle{
+  margin:0 26px 20px;display:flex;gap:0;border:1px solid rgba(245,240,232,.15);border-radius:3px;overflow:hidden
+}
+.lang-btn{
+  flex:1;padding:7px 4px;font-family:var(--mono);font-size:9px;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(245,240,232,.35);background:none;
+  border:none;cursor:pointer;transition:all .2s;
+}
+.lang-btn.on{background:var(--red);color:white}
+
+.sidenav-foot{padding:16px 26px 0;font-family:var(--mono);font-size:9px;color:rgba(245,240,232,.22);line-height:1.9;border-top:1px solid rgba(255,255,255,.06)}
+
+/* ── APP ── */
+.app{margin-left:var(--nav-w);height:100vh;position:relative;overflow:hidden}
+
+/* ── PAGES ── */
+.page{
+  position:absolute;inset:0;overflow-y:auto;
+  padding:70px 68px 88px;
+  opacity:0;transform:translateX(28px);pointer-events:none;
+  transition:opacity .38s cubic-bezier(.16,1,.3,1),transform .38s cubic-bezier(.16,1,.3,1);
+  will-change:opacity,transform;
+}
+.page.active{opacity:1;transform:none;pointer-events:all}
+.page.exit{opacity:0;transform:translateX(-28px)}
+
+/* ── SECTION LABELS ── */
+.sec-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';flex:1;max-width:52px;height:1px;background:var(--red)}
+h2.sec-title{font-family:var(--display);font-size:clamp(36px,5.5vw,68px);letter-spacing:2px;color:var(--ink);line-height:1;margin-bottom:44px}
+.section-divider{border:none;border-top:1px solid var(--border);margin:72px 0}
+
+/* ══════════════════════════════
+   PAGE: HOME (เต็ม)
+══════════════════════════════ */
+#page-home{background:var(--paper)}
+
+/* HERO */
+.hero{min-height:calc(100vh - 158px);display:flex;flex-direction:column;justify-content:center;margin-bottom:16px}
+.hero-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--red)}
+h1.hero-name{font-family:var(--display);font-size:clamp(60px,9.5vw,116px);line-height:.9;letter-spacing:3px;color:var(--ink);margin-bottom:10px}
+h1.hero-name em{display:block;color:var(--red);font-style:normal}
+.hero-bio{max-width:480px;font-size:15px;color:var(--muted);line-height:1.85;margin:26px 0 36px}
+.hero-stats{display:flex;gap:44px;margin-bottom:40px}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-n{font-family:var(--display);font-size:50px;color:var(--ink);line-height:1}
+.stat-n sup{font-size:18px;color:var(--red)}
+.stat-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.pill-row{display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:flex;align-items:center;gap:7px;padding:8px 16px;border:1px solid var(--border);border-radius:100px;font-family:var(--mono);font-size:11px;color:var(--ink);text-decoration:none;background:white;transition:all .2s}
+.pill:hover{border-color:var(--red);color:var(--red)}
+.pill svg{flex-shrink:0}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:155px 1fr;gap:36px;padding:32px 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-period{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:7px}
+.exp-co{font-size:12px;font-weight:500;color:var(--ink);line-height:1.4}
+.exp-badge{display:inline-block;margin-top:7px;padding:2px 9px;background:var(--cream);border-radius:100px;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.exp-content h3{font-family:var(--display);font-size:26px;letter-spacing:1px;color:var(--ink);margin-bottom:12px;line-height:1.1}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:6px}
+.exp-bullets li{font-size:13px;color:var(--muted);padding-left:16px;position:relative;line-height:1.65}
+.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--red);font-size:11px;top:2px}
+
+/* SKILLS */
+.skills-bg{background:var(--ink);border-radius:3px;padding:52px;margin:0 -4px}
+.skills-bg .sec-label{color:var(--red)}
+.skills-bg h2.sec-title{color:var(--paper)}
+.skills-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:52px}
+.skill-group h4{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;padding-bottom:7px;border-bottom:1px solid rgba(245,240,232,.08)}
+.skill-row{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.skill-name{font-size:12px;color:rgba(245,240,232,.68);min-width:132px}
+.skill-track{flex:1;height:2px;background:rgba(245,240,232,.1);border-radius:1px;overflow:hidden}
+.skill-fill{height:100%;background:var(--red);border-radius:1px;transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.skill-fill.on{transform:scaleX(1)}
+.skill-lv{font-family:var(--mono);font-size:9px;color:rgba(245,240,232,.28);white-space:nowrap}
+.badges-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.badge{padding:5px 13px;border:1px solid rgba(245,240,232,.12);border-radius:3px;font-family:var(--mono);font-size:9px;color:rgba(245,240,232,.45);letter-spacing:1px;transition:all .2s;cursor:default}
+.badge:hover{border-color:var(--red);color:var(--paper)}
+.badge.hot{border-color:var(--gold);color:var(--gold)}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:40px}
+.edu-card{padding:28px;border:1px solid var(--border);border-radius:2px;background:white;position:relative;overflow:hidden;transition:border-color .2s}
+.edu-card:hover{border-color:var(--red)}
+.edu-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red)}
+.edu-yr{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:8px}
+.edu-deg{font-family:var(--display);font-size:21px;letter-spacing:1px;color:var(--ink);line-height:1.2;margin-bottom:7px}
+.edu-school{font-size:12px;color:var(--muted);margin-bottom:12px}
+.edu-gpa{display:inline-flex;align-items:center;gap:6px;padding:3px 11px;background:var(--cream);border-radius:100px;font-family:var(--mono);font-size:11px;color:var(--ink)}
+.edu-gpa strong{color:var(--red)}
+
+/* HOBBIES */
+.hobby-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.hcard{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;border:1px solid var(--border);border-radius:2px;background:white;cursor:default;transition:all .25s}
+.hcard:hover{background:var(--ink);border-color:var(--ink)}
+.hcard:hover .hlabel{color:var(--paper)}
+.hicon{font-size:26px;opacity:.68}
+.hlabel{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:var(--mono);transition:color .25s}
+
+/* ══════════════════════════════
+   PAGE: PHOTOGRAPHY
+══════════════════════════════ */
+#page-portfolio{background:var(--cream)}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.fbtn{padding:6px 15px;border:1px solid var(--border);border-radius:100px;font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);background:white;cursor:pointer;transition:all .2s}
+.fbtn:hover,.fbtn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.masonry{columns:3;column-gap:11px}
+.mitem{break-inside:avoid;margin-bottom:11px;position:relative;overflow:hidden;border-radius:2px;cursor:pointer;border:1px solid var(--border);transition:transform .25s}
+.mitem:hover{transform:scale(1.012)}
+.mitem img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.mitem:hover img{transform:scale(1.05)}
+.mitem .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.7) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:13px}
+.mitem:hover .ov{opacity:1}
+.ov span{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:white}
+.add-card{break-inside:avoid;margin-bottom:11px;border:2px dashed var(--border);border-radius:2px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;cursor:pointer;background:white;transition:all .2s}
+.add-card:hover{border-color:var(--red);background:rgba(233,64,64,.02)}
+.add-card span{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+/* ══════════════════════════════
+   PAGE: VIDEOS (Google Drive)
+══════════════════════════════ */
+#page-videos{background:white}
+.vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.vcard{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--paper);transition:border-color .2s,transform .25s}
+.vcard:hover{border-color:var(--ink);transform:translateY(-3px)}
+.vthumb{position:relative;aspect-ratio:16/9;background:var(--ink);overflow:hidden}
+.vthumb iframe{width:100%;height:100%;border:none;display:block}
+/* Google Drive embed note */
+.gdrive-note{position:absolute;bottom:0;left:0;right:0;padding:7px 12px;background:rgba(13,13,13,.55);font-family:var(--mono);font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px}
+.vinfo{padding:16px 20px}
+.vtag{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.vinfo h4{font-family:var(--display);font-size:20px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;line-height:1.2}
+.vinfo p{font-size:12px;color:var(--muted);line-height:1.65}
+.vadd{border:2px dashed var(--border);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:44px;cursor:pointer;background:white;min-height:200px;transition:all .2s}
+.vadd:hover{border-color:var(--red);background:rgba(233,64,64,.02)}
+.vadd span{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.9}
+.gdrive-help{margin-top:36px;padding:20px 24px;border:1px solid var(--border);border-radius:2px;background:var(--cream);font-size:12px;color:var(--muted);line-height:1.8}
+.gdrive-help code{font-family:var(--mono);font-size:11px;background:rgba(13,13,13,.07);padding:2px 6px;border-radius:3px;color:var(--ink)}
+
+/* ══════════════════════════════
+   PAGE: CERTIFICATES
+══════════════════════════════ */
+#page-certs{background:var(--paper)}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ccard{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:white;cursor:pointer;transition:all .25s}
+.ccard:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 10px 26px rgba(13,13,13,.08)}
+.cthumb{aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream) 0%,#e0d8c8 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.cthumb img{width:100%;height:100%;object-fit:cover}
+.cicon{font-size:40px;opacity:.26}
+.cseal{position:absolute;top:9px;right:9px;width:26px;height:26px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:11px}
+.cbody{padding:13px 15px 15px;border-top:1px solid var(--border)}
+.cissuer{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.cname{font-weight:500;font-size:12px;color:var(--ink);line-height:1.35;margin-bottom:5px}
+.cdate{font-family:var(--mono);font-size:9px;color:var(--muted)}
+.cadd{border:2px dashed var(--border);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:30px 14px;cursor:pointer;background:white;min-height:190px;transition:all .2s}
+.cadd:hover{border-color:var(--gold);background:rgba(200,169,74,.04)}
+.cadd span{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* ── LIGHTBOX ── */
+.lb{position:fixed;inset:0;background:rgba(13,13,13,.93);z-index:8000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.lb.on{opacity:1;pointer-events:all}
+.lb img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:2px}
+.lb-close{position:absolute;top:20px;right:26px;font-family:var(--mono);font-size:20px;color:rgba(245,240,232,.45);cursor:pointer;background:none;border:none;line-height:1;transition:color .2s}
+.lb-close:hover{color:var(--paper)}
+.lb-cap{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;letter-spacing:2px;color:rgba(245,240,232,.32);text-transform:uppercase;white-space:nowrap}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .topbar{display:flex}
+  .sidenav{transform:translateX(-100%)}
+  .sidenav.open{transform:none}
+  .app{margin-left:0;padding-top:54px}
+  .page{padding:44px 22px 60px}
+  .exp-item{grid-template-columns:1fr;gap:8px}
+  .skills-cols{grid-template-columns:1fr;gap:32px}
+  .skills-bg{padding:32px 22px}
+  .edu-grid{grid-template-columns:1fr}
+  .hobby-row{grid-template-columns:repeat(2,1fr)}
+  .masonry{columns:2}
+  .vgrid{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:repeat(2,1fr)}
+  h2.sec-title{margin-bottom:28px}
+}
+@media(max-width:500px){
+  .masonry{columns:1}
+  .cgrid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- SIDE NAV -->
-<nav class="sidenav">
-  <div class="sidenav-name">Kerkrit<br>Koch<br>druang</div>
-  <div class="sidenav-title">Digital Marketing</div>
-  <ul class="sidenav-links">
-    <li><a href="#hero" class="active"><span class="dot"></span>Home</a></li>
-    <li><a href="#experience"><span class="dot"></span>Experience</a></li>
-    <li><a href="#skills"><span class="dot"></span>Skills</a></li>
-    <li><a href="#education"><span class="dot"></span>Education</a></li>
-    <li><a href="#hobbies"><span class="dot"></span>Interests</a></li>
-    <li><a href="#contact"><span class="dot"></span>Contact</a></li>
+<!-- TOPBAR mobile -->
+<div class="topbar">
+  <div class="topbar-name">KK</div>
+  <div class="topbar-right">
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</div>
+
+<!-- SIDENAV -->
+<nav class="sidenav" id="sidenav">
+  <div class="sidenav-logo">
+    <div class="sidenav-name">Kerkrit<br>Koch<br>druang</div>
+    <div class="sidenav-sub">Digital Marketing</div>
+  </div>
+
+  <ul class="nav-links">
+    <div class="nav-section-label" data-th="หน้าหลัก" data-en="Main"></div>
+    <li><a href="#" data-page="home" class="active"><span class="nicon">⌂</span><span data-th="โปรไฟล์" data-en="Profile"></span></a></li>
+    <div class="nav-section-label" data-th="ผลงาน" data-en="Portfolio"></div>
+    <li><a href="#" data-page="portfolio"><span class="nicon">📷</span><span data-th="ภาพถ่าย" data-en="Photography"></span></a></li>
+    <li><a href="#" data-page="videos"><span class="nicon">🎬</span><span data-th="วิดีโอ" data-en="Videos"></span></a></li>
+    <li><a href="#" data-page="certs"><span class="nicon">🏆</span><span data-th="ใบเซอ" data-en="Certificates"></span></a></li>
   </ul>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="btn-th" onclick="setLang('th')">TH</button>
+    <button class="lang-btn"    id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
   <div class="sidenav-foot">
     © 2024 Kerkrit K.<br>
     Samut Prakan, TH
   </div>
 </nav>
 
-<!-- MAIN -->
-<main>
+<!-- APP -->
+<div class="app">
+
+<!-- ══════════════════════════════════════════
+     PAGE: HOME — Profile ทั้งหมดรวมกัน
+══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
 
   <!-- HERO -->
-  <section id="hero">
-    <div class="hero-tag">Digital Marketing Leader</div>
-    <h1 class="hero-name">
-      Kerkrit
-      <span>Koch<br>druang</span>
-    </h1>
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <span data-th="ผู้นำทีม Digital Marketing · กรุงเทพฯ" data-en="Digital Marketing Team Leader · Bangkok, TH"></span>
+    </div>
+    <h1 class="hero-name">Kerkrit<em>Koch<br>druang</em></h1>
     <p class="hero-bio">
-      Dynamic Digital Marketing Team Leader with 9 years of experience driving impactful strategies, creating engaging multimedia content, and building brand visibility across every major platform.
+      <span data-th="ผู้นำทีม Digital Marketing ที่มีประสบการณ์กว่า <strong>9 ปี</strong> ในการขับเคลื่อนกลยุทธ์การตลาดที่มีประสิทธิภาพ สร้าง content มัลติมีเดียที่ดึงดูดใจ และเพิ่มการรับรู้แบรนด์บนทุกแพลตฟอร์มหลัก"
+             data-en="Dynamic Digital Marketing Team Leader with <strong>9 years</strong> of experience driving impactful strategies, creating engaging multimedia content, and building brand visibility across every major platform."></span>
     </p>
     <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">9<sup>+</sup></div>
-        <div class="stat-label">Years Exp.</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Major Brands</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">10<sup>+</sup></div>
-        <div class="stat-label">Platforms</div>
-      </div>
+      <div class="stat"><div class="stat-n">9<sup>+</sup></div><div class="stat-l" data-th="ปีประสบการณ์" data-en="Years Exp."></div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l" data-th="แบรนด์ใหญ่" data-en="Major Brands"></div></div>
+      <div class="stat"><div class="stat-n">10<sup>+</sup></div><div class="stat-l" data-th="แพลตฟอร์ม" data-en="Platforms"></div></div>
     </div>
-    <div class="hero-contacts">
-      <a class="contact-pill" href="mailto:kerkrit.k@hotmail.com">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+    <div class="pill-row">
+      <a class="pill" href="mailto:kerkrit.k@hotmail.com">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
         kerkrit.k@hotmail.com
       </a>
-      <a class="contact-pill" href="tel:0638899953">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92Z"/></svg>
+      <a class="pill" href="tel:0638899953">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92Z"/></svg>
         063-889-9953
       </a>
-      <a class="contact-pill" href="#">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        Samut Prakan, Thailand
-      </a>
+      <span class="pill">📍 Samut Prakan</span>
     </div>
-  </section>
+  </div>
+
+  <hr class="section-divider"/>
 
   <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-label">Work History</div>
-    <h2 class="section-title">EXPERIENCE</h2>
+  <div class="sec-label" data-th="ประวัติการทำงาน" data-en="Work History"></div>
+  <h2 class="sec-title" data-th="ประสบการณ์" data-en="EXPERIENCE"></h2>
+  <div class="exp-list">
 
-    <div class="exp-grid">
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2021 — Present</div>
-          <div class="exp-company">CRC Thai Watsadu Co., Ltd.</div>
-          <span class="exp-tag">Current Role</span>
-        </div>
-        <div class="exp-right">
-          <h3>Digital Marketing<br>Team Leader</h3>
-          <ul class="exp-bullets">
-            <li>Produced and managed online media across BnB Home website, Facebook, Instagram, and LINE.</li>
-            <li>Created video content and collaborated with influencers and suppliers for brand campaigns.</li>
-            <li>Led omni-channel media production for Thai Watsadu and BnB Home web & mobile apps.</li>
-            <li>Managed CMS — landing pages, articles, and promotional content.</li>
-            <li>Executed Google Ads and advanced SEO strategies for e-commerce visibility.</li>
-            <li>Expanded to TikTok creative video production for the Gowow brand in 2022.</li>
-          </ul>
-        </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2021 — <span data-th="ปัจจุบัน" data-en="Present"></span></div>
+        <div class="exp-co">CRC Thai Watsadu<br>Co., Ltd.</div>
+        <span class="exp-badge" data-th="งานปัจจุบัน" data-en="Current"></span>
       </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2019 — 2021</div>
-          <div class="exp-company">Olino Premium Foods Co., Ltd.</div>
-        </div>
-        <div class="exp-right">
-          <h3>Digital Marketing &<br>Media Services</h3>
-          <ul class="exp-bullets">
-            <li>Managed and produced marketing materials for online and offline channels.</li>
-            <li>Created advertising content — photography, videography, and video editing.</li>
-            <li>Executed SMM strategies and SEO to increase online visibility.</li>
-            <li>Used Facebook Ads & Google Ads to acquire retail and franchise customers.</li>
-            <li>Coordinated campaigns with LINE MAN, Grab, Foodpanda, and GET.</li>
-          </ul>
-        </div>
+      <div class="exp-content">
+        <h3 data-th="หัวหน้าทีม Digital Marketing" data-en="Digital Marketing Team Leader"></h3>
+        <ul class="exp-bullets">
+          <li><span data-th="ผลิตและจัดการสื่อออนไลน์สำหรับ BnB Home, Facebook, Instagram และ LINE" data-en="Produced and managed online media for BnB Home, Facebook, Instagram and LINE"></span></li>
+          <li><span data-th="ผลิต video content ร่วมกับ influencer & supplier สำหรับแคมเปญแบรนด์" data-en="Created video content, collaborated with influencers & suppliers for brand campaigns"></span></li>
+          <li><span data-th="นำทีม omni-channel media สำหรับเว็บไซต์และแอปมือถือ Thai Watsadu & BnB Home" data-en="Led omni-channel media for Thai Watsadu & BnB Home websites and mobile apps"></span></li>
+          <li><span data-th="บริหาร CMS — landing pages, บทความ และ content โปรโมชัน" data-en="Managed CMS — landing pages, articles and promotional content"></span></li>
+          <li><span data-th="วางกลยุทธ์ Google Ads และ SEO เพื่อเพิ่มการมองเห็นสินค้าบน e-commerce" data-en="Executed Google Ads & SEO strategies to enhance product visibility on e-commerce"></span></li>
+          <li><span data-th="ขยายงานสู่ creative video สำหรับแบรนด์ Gowow บน TikTok (2022)" data-en="Expanded to TikTok creative video production for the Gowow brand (2022)"></span></li>
+        </ul>
       </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2018 — 2019</div>
-          <div class="exp-company">Procter &amp; Gamble Thailand</div>
-          <span class="exp-tag">Contract · 1 yr</span>
-        </div>
-        <div class="exp-right">
-          <h3>Digital Media<br>Coordinator</h3>
-          <ul class="exp-bullets">
-            <li>Oversaw all digital media operations for the Olay brand — campaign planning, content, and performance monitoring.</li>
-            <li>Managed B2C channels: Facebook, Instagram, YouTube, and display ads aligned with global P&G guidelines.</li>
-            <li>Maintained confidentiality for brand ambassadors and sensitive campaign materials.</li>
-            <li>Supported influencer marketing strategies to boost product awareness and consumer engagement.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2016 — 2018</div>
-          <div class="exp-company">Oishi Group Public Co., Ltd.</div>
-        </div>
-        <div class="exp-right">
-          <h3>Digital Marketing &<br>Media Services</h3>
-          <ul class="exp-bullets">
-            <li>Produced marketing media — photography, videography, and video editing.</li>
-            <li>Managed and created social media accounts for OISHI and EST brands.</li>
-            <li>Created educational media for cooking tutorials under OISHI FOOD group.</li>
-            <li>Increased followers and click-through rates to meet campaign goals.</li>
-            <li>Executed SMM strategies and SEO for oishifood.com.</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
-  </section>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2019 — 2021</div>
+        <div class="exp-co">Olino Premium<br>Foods Co., Ltd.</div>
+      </div>
+      <div class="exp-content">
+        <h3 data-th="นักการตลาดดิจิทัลและสื่อ" data-en="Digital Marketing & Media Services"></h3>
+        <ul class="exp-bullets">
+          <li><span data-th="จัดการและผลิตสื่อการตลาดทั้ง online และ offline" data-en="Managed and produced marketing materials for both online and offline channels"></span></li>
+          <li><span data-th="สร้าง content โฆษณา — ถ่ายภาพ, ถ่ายวิดีโอ และตัดต่อ" data-en="Created advertising content — photography, videography and video editing"></span></li>
+          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO เพื่อเพิ่ม online visibility" data-en="Executed SMM strategies and SEO to increase online visibility"></span></li>
+          <li><span data-th="ใช้ Facebook Ads & Google Ads เพื่อหาลูกค้า retail และ franchise" data-en="Utilized Facebook Ads & Google Ads to acquire retail and franchise customers"></span></li>
+          <li><span data-th="ประสานงานแคมเปญกับ LINE MAN, Grab, Foodpanda, GET" data-en="Coordinated campaigns with LINE MAN, Grab, Foodpanda and GET"></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2018 — 2019</div>
+        <div class="exp-co">Procter &amp; Gamble<br>Thailand</div>
+        <span class="exp-badge" data-th="สัญญา 1 ปี" data-en="Contract · 1yr"></span>
+      </div>
+      <div class="exp-content">
+        <h3 data-th="ผู้ประสานงานสื่อดิจิทัล" data-en="Digital Media Coordinator"></h3>
+        <ul class="exp-bullets">
+          <li><span data-th="ดูแลการดำเนินงานสื่อดิจิทัลทั้งหมดสำหรับแบรนด์ Olay" data-en="Oversaw all digital media operations for the Olay brand"></span></li>
+          <li><span data-th="บริหาร B2C channels: Facebook, Instagram, YouTube, Display Ads ตาม global guidelines ของ P&G" data-en="Managed B2C channels: Facebook, Instagram, YouTube, Display Ads aligned with global P&G guidelines"></span></li>
+          <li><span data-th="รักษาความลับของ brand ambassador และ material แคมเปญ" data-en="Maintained strict confidentiality for brand ambassadors and sensitive campaign materials"></span></li>
+          <li><span data-th="พัฒนาและดำเนินกลยุทธ์ influencer marketing เพื่อเพิ่ม consumer engagement" data-en="Developed and executed social media & influencer marketing strategies for consumer engagement"></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2016 — 2018</div>
+        <div class="exp-co">Oishi Group<br>Public Co., Ltd.</div>
+      </div>
+      <div class="exp-content">
+        <h3 data-th="นักการตลาดดิจิทัลและสื่อ" data-en="Digital Marketing & Media Services"></h3>
+        <ul class="exp-bullets">
+          <li><span data-th="ผลิตสื่อการตลาด — ถ่ายภาพ, ถ่ายวิดีโอ, ตัดต่อวิดีโอ" data-en="Produced marketing media — photography, videography and video editing"></span></li>
+          <li><span data-th="สร้างและจัดการ social media สำหรับแบรนด์ OISHI และ EST" data-en="Managed and created social media accounts for OISHI and EST brands"></span></li>
+          <li><span data-th="ผลิตสื่อการศึกษาสำหรับ cooking tutorial ภายใต้ OISHI FOOD group" data-en="Created educational media for cooking tutorials under OISHI FOOD group"></span></li>
+          <li><span data-th="เพิ่ม followers และ CTR บนแพลตฟอร์ม social media ให้ตามเป้าหมาย" data-en="Increased followers and click-through rates on social platforms to meet campaign goals"></span></li>
+          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO สำหรับ oishifood.com" data-en="Executed SMM strategies and SEO for oishifood.com"></span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /exp-list -->
+
+  <hr class="section-divider"/>
 
   <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">Capabilities</div>
-    <h2 class="section-title">SKILLS</h2>
-
-    <div class="skills-grid">
-
-      <div class="skill-category reveal">
-        <h4>Creative & Design</h4>
-
-        <div class="skill-row">
-          <span class="skill-name">Adobe Illustrator</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-          <span class="skill-level">Experienced</span>
+  <div class="skills-bg">
+    <div class="sec-label" data-th="ความสามารถ" data-en="Capabilities"></div>
+    <h2 class="sec-title" data-th="ทักษะ" data-en="SKILLS"></h2>
+    <div class="skills-cols">
+      <div>
+        <div class="skill-group">
+          <h4 data-th="สร้างสรรค์และออกแบบ" data-en="Creative & Design"></h4>
+          <div class="skill-row"><span class="skill-name">Adobe Illustrator</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Adobe Photoshop</span><div class="skill-track"><div class="skill-fill" style="width:65%"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
+          <div class="skill-row"><span class="skill-name">Adobe Premiere Pro</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Final Cut Pro</span><div class="skill-track"><div class="skill-fill" style="width:65%"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
+          <div class="skill-row"><span class="skill-name">Canva</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
         </div>
-        <div class="skill-row">
-          <span class="skill-name">Adobe Photoshop</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-          <span class="skill-level">Skillful</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Adobe Premiere</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Final Cut Pro</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-          <span class="skill-level">Skillful</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Canva</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-          <span class="skill-level">Experienced</span>
+        <div class="skill-group" style="margin-top:32px">
+          <h4 data-th="ภาวะผู้นำและสำนักงาน" data-en="Leadership & Office"></h4>
+          <div class="skill-row"><span class="skill-name" data-th="ภาวะผู้นำ" data-en="Leadership"></span><div class="skill-track"><div class="skill-fill" style="width:88%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name" data-th="การสื่อสาร" data-en="Communication"></span><div class="skill-track"><div class="skill-fill" style="width:88%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">MS Word</span><div class="skill-track"><div class="skill-fill" style="width:96%"></div></div><span class="skill-lv" data-th="เชี่ยวชาญ ★" data-en="Expert ★"></span></div>
+          <div class="skill-row"><span class="skill-name">PowerPoint</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Excel</span><div class="skill-track"><div class="skill-fill" style="width:65%"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
         </div>
       </div>
-
-      <div class="skill-category reveal">
-        <h4>Leadership & Communication</h4>
-
-        <div class="skill-row">
-          <span class="skill-name">Leadership</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-          <span class="skill-level">Experienced</span>
+      <div>
+        <div class="skill-group">
+          <h4 data-th="การตลาดดิจิทัล" data-en="Digital Marketing"></h4>
+          <div class="skill-row"><span class="skill-name">SEO</span><div class="skill-track"><div class="skill-fill" style="width:84%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Google Ads</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Facebook Ads</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">CMS</span><div class="skill-track"><div class="skill-fill" style="width:78%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">HTML/CSS/JS</span><div class="skill-track"><div class="skill-fill" style="width:70%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
         </div>
-        <div class="skill-row">
-          <span class="skill-name">Communication</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Microsoft Word</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
-          <span class="skill-level">Expert ★</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">PowerPoint</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Microsoft Excel</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-          <span class="skill-level">Skillful</span>
+        <div class="skill-group" style="margin-top:32px">
+          <h4 data-th="แพลตฟอร์ม" data-en="Platforms"></h4>
+          <div class="badges-wrap">
+            <span class="badge hot">Facebook</span><span class="badge hot">Instagram</span>
+            <span class="badge hot">TikTok</span><span class="badge hot">YouTube</span>
+            <span class="badge">LINE</span><span class="badge">LINE MAN</span>
+            <span class="badge">Grab</span><span class="badge">Foodpanda</span>
+            <span class="badge">Google Ads</span><span class="badge">Meta Ads</span>
+            <span class="badge">CMS</span><span class="badge">E-Commerce</span>
+          </div>
         </div>
       </div>
-
-      <div class="skill-category reveal">
-        <h4>Digital Marketing</h4>
-
-        <div class="skill-row">
-          <span class="skill-name">SEO</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Google Ads</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">Facebook Ads</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">CMS Management</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-name">HTML / CSS / JS</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div>
-          <span class="skill-level">Experienced</span>
-        </div>
-      </div>
-
-      <div class="skill-category reveal">
-        <h4>Platforms & Tools</h4>
-        <div class="tools-wrap">
-          <span class="tool-badge highlight">Facebook</span>
-          <span class="tool-badge highlight">Instagram</span>
-          <span class="tool-badge highlight">TikTok</span>
-          <span class="tool-badge highlight">YouTube</span>
-          <span class="tool-badge">LINE</span>
-          <span class="tool-badge">LINE MAN</span>
-          <span class="tool-badge">Grab</span>
-          <span class="tool-badge">Foodpanda</span>
-          <span class="tool-badge">Google Ads</span>
-          <span class="tool-badge">Facebook Ads</span>
-          <span class="tool-badge">CMS</span>
-          <span class="tool-badge">E-commerce</span>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </div>
+
+  <hr class="section-divider"/>
 
   <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-label">Academic Background</div>
-    <h2 class="section-title">EDUCATION</h2>
-
-    <div class="edu-grid">
-      <div class="edu-card reveal">
-        <div class="edu-year">2012 — 2016</div>
-        <div class="edu-deg">Bachelor of<br>Education</div>
-        <div class="edu-school">Rajamangala University of Technology Thanyaburi, Pathum Thani<br><em style="font-size:12px;color:var(--muted)">Industrial Education</em></div>
-        <div class="edu-gpa">GPA <strong>3.33</strong></div>
-        <p style="margin-top:16px;font-size:13px;color:var(--muted);line-height:1.6;">
-          Graduation Project: Developed an educational application for Grade 1 students — bridging education and technology.
-        </p>
+  <div class="sec-label" data-th="การศึกษา" data-en="Academic Background"></div>
+  <h2 class="sec-title" data-th="การศึกษา" data-en="EDUCATION"></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-yr">2012 — 2016</div>
+      <div class="edu-deg" data-th="ครุศาสตร์อุตสาหกรรม<br>บัณฑิต" data-en="Bachelor of<br>Education"></div>
+      <div class="edu-school">
+        <span data-th="มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี, ปทุมธานี" data-en="Rajamangala University of Technology Thanyaburi, Pathum Thani"></span><br>
+        <em style="font-size:11px;color:var(--muted)" data-th="สาขาครุศาสตร์อุตสาหกรรม" data-en="Industrial Education"></em>
       </div>
-
-      <div class="edu-card reveal">
-        <div class="edu-year">2005 — 2011</div>
-        <div class="edu-deg">High School<br>Diploma</div>
-        <div class="edu-school">Suankularb Wittayalai Saraburi School, Saraburi</div>
-        <div class="edu-gpa">GPA <strong>2.85</strong></div>
-      </div>
+      <div class="edu-gpa">GPA <strong>3.33</strong></div>
+      <p style="margin-top:12px;font-size:12px;color:var(--muted);line-height:1.7">
+        <span data-th="โครงงานจบการศึกษา: พัฒนาแอปพลิเคชันการศึกษาสำหรับนักเรียน ป.1" data-en="Graduation Project: Developed an educational application for Grade 1 students"></span>
+      </p>
     </div>
-  </section>
+    <div class="edu-card">
+      <div class="edu-yr">2005 — 2011</div>
+      <div class="edu-deg" data-th="มัธยมศึกษาตอนปลาย" data-en="High School<br>Diploma"></div>
+      <div class="edu-school" data-th="โรงเรียนสวนกุหลาบวิทยาลัย สระบุรี" data-en="Suankularb Wittayalai Saraburi School, Saraburi"></div>
+      <div class="edu-gpa">GPA <strong>2.85</strong></div>
+    </div>
+  </div>
 
   <!-- HOBBIES -->
-  <section id="hobbies">
-    <div class="section-label">Personal Life</div>
-    <h2 class="section-title">INTERESTS</h2>
+  <div class="sec-label" style="margin-top:56px" data-th="ชีวิตส่วนตัว" data-en="Personal Life"></div>
+  <h2 class="sec-title" style="font-size:38px;margin-bottom:20px" data-th="งานอดิเรก" data-en="INTERESTS"></h2>
+  <div class="hobby-row">
+    <div class="hcard"><div class="hicon">📷</div><div class="hlabel" data-th="ถ่ายภาพ" data-en="Photography"></div></div>
+    <div class="hcard"><div class="hicon">✈️</div><div class="hlabel" data-th="ท่องเที่ยว" data-en="Travel"></div></div>
+    <div class="hcard"><div class="hicon">🍳</div><div class="hlabel" data-th="ทำอาหาร" data-en="Cooking"></div></div>
+    <div class="hcard"><div class="hicon">🎨</div><div class="hlabel" data-th="ออกแบบ" data-en="Design"></div></div>
+  </div>
 
-    <div class="hobby-grid">
-      <div class="hobby-card reveal">
-        <div class="hobby-icon">📷</div>
-        <div class="hobby-label">Photography</div>
+</div><!-- /page-home -->
+
+<!-- ══════════════════════════════════════════
+     PAGE: PHOTOGRAPHY
+══════════════════════════════════════════ -->
+<div class="page" id="page-portfolio">
+  <div class="sec-label" data-th="ผลงานสร้างสรรค์" data-en="Creative Work"></div>
+  <h2 class="sec-title" data-th="ภาพถ่าย" data-en="PHOTOGRAPHY"></h2>
+
+  <div class="filter-bar">
+    <button class="fbtn on" data-f="all"       data-th="ทั้งหมด"  data-en="All"></button>
+    <button class="fbtn"    data-f="brand"     data-th="แบรนด์"   data-en="Brand"></button>
+    <button class="fbtn"    data-f="product"   data-th="สินค้า"   data-en="Product"></button>
+    <button class="fbtn"    data-f="lifestyle" data-th="ไลฟ์สไตล์" data-en="Lifestyle"></button>
+    <button class="fbtn"    data-f="food"      data-th="อาหาร"   data-en="Food"></button>
+  </div>
+
+  <div class="masonry" id="masonry">
+    <!-- วิธีเพิ่มรูป: แทนที่ src="..." ด้วย URL รูปของคุณ และ data-cat คือประเภท -->
+    <div class="mitem" data-cat="brand"><img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=75" loading="lazy" alt="Brand Campaign"/><div class="ov"><span data-th="แคมเปญแบรนด์" data-en="Brand Campaign"></span></div></div>
+    <div class="mitem" data-cat="food"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75" loading="lazy" alt="Food"/><div class="ov"><span data-th="ถ่ายภาพอาหาร — Oishi" data-en="Food Photography — Oishi"></span></div></div>
+    <div class="mitem" data-cat="product"><img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=75" loading="lazy" alt="Product"/><div class="ov"><span data-th="ถ่ายภาพสินค้า" data-en="Product Shot"></span></div></div>
+    <div class="mitem" data-cat="lifestyle"><img src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?w=600&q=75" loading="lazy" alt="Lifestyle"/><div class="ov"><span data-th="ไลฟ์สไตล์" data-en="Lifestyle Content"></span></div></div>
+    <div class="mitem" data-cat="brand"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=75" loading="lazy" alt="Visual"/><div class="ov"><span data-th="สื่อภาพแคมเปญ" data-en="Visual Campaign"></span></div></div>
+    <div class="mitem" data-cat="product"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=75" loading="lazy" alt="Olay"/><div class="ov"><span data-th="สินค้า — Olay" data-en="Product — Olay"></span></div></div>
+    <div class="mitem" data-cat="food"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75" loading="lazy" alt="Food Styling"/><div class="ov"><span data-th="จัดจาน" data-en="Food Styling"></span></div></div>
+    <div class="mitem" data-cat="lifestyle"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75" loading="lazy" alt="Campaign"/><div class="ov"><span data-th="ถ่ายแคมเปญ" data-en="Campaign Shoot"></span></div></div>
+    <div class="add-card" onclick="alert('วาง URL รูปของคุณใน src ของ .mitem')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <span data-th="+ เพิ่มรูปของคุณ" data-en="+ Add your photo"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: VIDEOS (Google Drive)
+══════════════════════════════════════════ -->
+<div class="page" id="page-videos">
+  <div class="sec-label" data-th="งานวิดีโอ" data-en="Motion Work"></div>
+  <h2 class="sec-title" data-th="วิดีโอ" data-en="VIDEOS"></h2>
+
+  <div class="vgrid">
+
+    <!--
+    ═══════════════════════════════════════════════════════════════
+    วิธีฝัง Google Drive Video:
+    1. เปิดไฟล์วิดีโอบน Google Drive
+    2. คลิก Share → เปลี่ยนเป็น "Anyone with the link"
+    3. Copy link ที่ได้ เช่น:
+       https://drive.google.com/file/d/FILE_ID/view
+    4. นำ FILE_ID ไปใส่ใน src ด้านล่าง:
+       https://drive.google.com/file/d/FILE_ID/preview
+    ═══════════════════════════════════════════════════════════════
+    -->
+
+    <div class="vcard">
+      <div class="vthumb">
+        <!-- แทน FILE_ID_1 ด้วย ID จาก Google Drive ของคุณ -->
+        <iframe src="https://drive.google.com/file/d/FILE_ID_1/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+        <div class="gdrive-note">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+          Google Drive
+        </div>
       </div>
-      <div class="hobby-card reveal">
-        <div class="hobby-icon">✈️</div>
-        <div class="hobby-label">Travel</div>
-      </div>
-      <div class="hobby-card reveal">
-        <div class="hobby-icon">🍳</div>
-        <div class="hobby-label">Cooking</div>
-      </div>
-      <div class="hobby-card reveal">
-        <div class="hobby-icon">🎨</div>
-        <div class="hobby-label">Design</div>
+      <div class="vinfo">
+        <div class="vtag" data-th="แคมเปญแบรนด์" data-en="Brand Campaign"></div>
+        <h4 data-th="Oishi — โซเชียลแคมเปญ" data-en="Oishi — Social Campaign"></h4>
+        <p><span data-th="วิดีโอ marketing สำหรับ Oishi Group ครอบคลุมการเล่าเรื่องแบรนด์และ highlight สินค้า" data-en="Video marketing campaign for Oishi Group covering brand storytelling and product highlight"></span></p>
       </div>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-label">Get In Touch</div>
-    <h2 class="section-title">LET'S<br>WORK.</h2>
-    <p>Ready to bring innovative digital marketing solutions to elevate your brand's success.</p>
-    <div class="cta-links">
-      <a class="cta-btn filled" href="mailto:kerkrit.k@hotmail.com">Email Me</a>
-      <a class="cta-btn" href="tel:0638899953">063-889-9953</a>
+    <div class="vcard">
+      <div class="vthumb">
+        <!-- แทน FILE_ID_2 ด้วย ID จาก Google Drive ของคุณ -->
+        <iframe src="https://drive.google.com/file/d/FILE_ID_2/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+        <div class="gdrive-note">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+          Google Drive
+        </div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="TikTok Content" data-en="TikTok Content"></div>
+        <h4 data-th="Gowow — TikTok Series" data-en="Gowow — TikTok Series"></h4>
+        <p><span data-th="Short-form video สำหรับ Gowow บน TikTok สร้าง awareness และ engagement ให้แบรนด์" data-en="Short-form video for Gowow on TikTok, driving brand awareness and engagement"></span></p>
+      </div>
     </div>
-  </section>
 
-</main>
+    <div class="vcard">
+      <div class="vthumb">
+        <!-- แทน FILE_ID_3 ด้วย ID จาก Google Drive ของคุณ -->
+        <iframe src="https://drive.google.com/file/d/FILE_ID_3/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+        <div class="gdrive-note">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+          Google Drive
+        </div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="สื่อการศึกษา" data-en="Educational Media"></div>
+        <h4 data-th="Oishi Food — Cooking Tutorial" data-en="Oishi Food — Cooking Tutorial"></h4>
+        <p><span data-th="Cooking tutorial series ผสมผสาน brand content กับการสอนทำอาหาร" data-en="Cooking tutorial series combining brand content with culinary education"></span></p>
+      </div>
+    </div>
+
+    <div class="vadd" onclick="alert('แทนที่ vadd ด้วย vcard\nใส่ FILE_ID จาก Google Drive ใน src ของ iframe')">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      <span data-th="+ เพิ่มวิดีโอ Google Drive" data-en="+ Add Google Drive video"></span>
+    </div>
+
+  </div>
+
+  <!-- วิธีใช้ -->
+  <div class="gdrive-help">
+    <strong data-th="📌 วิธีฝัง Google Drive Video:" data-en="📌 How to embed Google Drive Video:"></strong><br/>
+    <span data-th="1. เปิดไฟล์วิดีโอบน Google Drive → Share → เปลี่ยนเป็น 'Anyone with the link'" data-en="1. Open video on Google Drive → Share → change to 'Anyone with the link'"></span><br/>
+    <span data-th="2. Copy link เช่น: " data-en="2. Copy link e.g. "></span><code>https://drive.google.com/file/d/<strong>FILE_ID</strong>/view</code><br/>
+    <span data-th="3. นำ FILE_ID ไปใส่ใน iframe src: " data-en="3. Put FILE_ID in iframe src: "></span><code>https://drive.google.com/file/d/<strong>FILE_ID</strong>/preview</code>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: CERTIFICATES
+══════════════════════════════════════════ -->
+<div class="page" id="page-certs">
+  <div class="sec-label" data-th="ใบประกาศนียบัตร" data-en="Credentials"></div>
+  <h2 class="sec-title" data-th="ใบเซอ" data-en="CERTIFICATES"></h2>
+
+  <div class="cgrid">
+    <!-- วิธีเพิ่มรูปใบเซอ: แทน .cicon ด้วย <img src="URL_ใบเซอ"> -->
+
+    <div class="ccard" onclick="openCert(this)">
+      <div class="cthumb"><div class="cicon">🎓</div><div class="cseal">★</div></div>
+      <div class="cbody">
+        <div class="cissuer">Google</div>
+        <div class="cname">Google Analytics Individual Qualification</div>
+        <div class="cdate">2022</div>
+      </div>
+    </div>
+
+    <div class="ccard" onclick="openCert(this)">
+      <div class="cthumb"><div class="cicon">📊</div><div class="cseal">★</div></div>
+      <div class="cbody">
+        <div class="cissuer">Meta / Facebook</div>
+        <div class="cname">Meta Certified Digital Marketing Associate</div>
+        <div class="cdate">2023</div>
+      </div>
+    </div>
+
+    <div class="ccard" onclick="openCert(this)">
+      <div class="cthumb"><div class="cicon">🔍</div><div class="cseal">★</div></div>
+      <div class="cbody">
+        <div class="cissuer">Google</div>
+        <div class="cname">Google Ads Search Certification</div>
+        <div class="cdate">2023</div>
+      </div>
+    </div>
+
+    <div class="ccard" onclick="openCert(this)">
+      <div class="cthumb"><div class="cicon">🎬</div><div class="cseal">★</div></div>
+      <div class="cbody">
+        <div class="cissuer">Google</div>
+        <div class="cname">Google Ads Video Certification</div>
+        <div class="cdate">2022</div>
+      </div>
+    </div>
+
+    <div class="ccard" onclick="openCert(this)">
+      <div class="cthumb"><div class="cicon">📱</div><div class="cseal">★</div></div>
+      <div class="cbody">
+        <div class="cissuer">HubSpot Academy</div>
+        <div class="cname">Social Media Marketing Certification</div>
+        <div class="cdate">2021</div>
+      </div>
+    </div>
+
+    <div class="cadd" onclick="alert('แทนที่ cadd ด้วย ccard\nและใส่รูปใบเซอใน .cthumb')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+      <span data-th="+ เพิ่มใบเซอของคุณ" data-en="+ Add your certificate"></span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="if(event.target===this)closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <img id="lbImg" src="" alt=""/>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
 
 <script>
-  // Active nav highlight
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.sidenav-links a');
+// ── LANGUAGE ──
+let lang = 'th';
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
-        });
-      }
+function setLang(l) {
+  lang = l;
+  document.getElementById('btn-th').classList.toggle('on', l === 'th');
+  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+  renderLang();
+}
+
+function renderLang() {
+  document.querySelectorAll('[data-th],[data-en]').forEach(el => {
+    const txt = el.getAttribute('data-' + lang);
+    if (txt === null) return;
+    // use innerHTML so <strong> etc works
+    el.innerHTML = txt;
+  });
+  // skill-name spans that have data-th/data-en
+  document.querySelectorAll('.skill-name[data-th]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang) || el.textContent;
+  });
+}
+
+// run on load
+renderLang();
+
+// ── PAGE ROUTING ──
+const pages = {};
+document.querySelectorAll('.page').forEach(p => pages[p.id] = p);
+let current = 'page-home';
+let busy = false;
+
+function goTo(id) {
+  const target = 'page-' + id;
+  if (target === current || busy || !pages[target]) return;
+  busy = true;
+
+  pages[current].classList.add('exit');
+  setTimeout(() => {
+    pages[current].classList.remove('active','exit');
+    pages[target].classList.add('active');
+    pages[target].scrollTop = 0;
+    current = target;
+    busy = false;
+    if (target === 'page-home') animateSkills();
+  }, 360);
+
+  document.querySelectorAll('.nav-links a[data-page]').forEach(a =>
+    a.classList.toggle('active', a.dataset.page === id));
+
+  document.getElementById('sidenav').classList.remove('open');
+  document.getElementById('burger').classList.remove('open');
+  history.pushState(null,'','#'+id);
+}
+
+document.querySelectorAll('.nav-links a[data-page]').forEach(a =>
+  a.addEventListener('click', e => { e.preventDefault(); goTo(a.dataset.page); }));
+
+// hash on load
+const h0 = location.hash.slice(1);
+if (h0 && pages['page-'+h0]) { goTo(h0); }
+else { animateSkills(); }  // home is default
+
+window.addEventListener('popstate', () => {
+  const h = location.hash.slice(1);
+  if (h && pages['page-'+h] && 'page-'+h !== current) {
+    pages[current].classList.remove('active');
+    pages['page-'+h].classList.add('active');
+    current = 'page-'+h;
+    document.querySelectorAll('.nav-links a[data-page]').forEach(a =>
+      a.classList.toggle('active', a.dataset.page === h));
+  }
+});
+
+// ── BURGER ──
+document.getElementById('burger').addEventListener('click', function(){
+  this.classList.toggle('open');
+  document.getElementById('sidenav').classList.toggle('open');
+});
+
+// ── SKILL BARS ──
+let skillsDone = false;
+function animateSkills() {
+  if (skillsDone) return;
+  skillsDone = true;
+  // wait for page transition to finish
+  setTimeout(() => {
+    document.querySelectorAll('.skill-fill').forEach((bar,i) =>
+      setTimeout(() => bar.classList.add('on'), i * 55));
+  }, 420);
+}
+
+// ── PHOTO FILTER ──
+document.querySelectorAll('.fbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const f = btn.dataset.f;
+    document.querySelectorAll('#masonry .mitem').forEach(item => {
+      const match = f === 'all' || item.dataset.cat === f;
+      item.style.opacity = match ? '1' : '0.13';
+      item.style.filter  = match ? '' : 'grayscale(1)';
+      item.style.pointerEvents = match ? 'all' : 'none';
+      item.style.transition = 'opacity .3s,filter .3s';
     });
-  }, { threshold: 0.3 });
+  });
+});
 
-  sections.forEach(s => observer.observe(s));
+// ── LIGHTBOX ──
+document.querySelectorAll('#masonry .mitem').forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    const cap = item.querySelector('.ov span');
+    document.getElementById('lbImg').src = img.src;
+    document.getElementById('lbCap').textContent =
+      cap ? cap.getAttribute('data-'+lang) || cap.textContent : '';
+    document.getElementById('lb').classList.add('on');
+    document.body.style.overflow = 'hidden';
+  });
+});
 
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        revealObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
+function closeLb() {
+  document.getElementById('lb').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeLb(); });
 
-  reveals.forEach(r => revealObs.observe(r));
-
-  // Animate skill bars when skills section visible
-  const skillBars = document.querySelectorAll('.skill-bar');
-  const skillSection = document.getElementById('skills');
-
-  const skillObs = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      skillBars.forEach((bar, i) => {
-        setTimeout(() => bar.classList.add('animated'), i * 60);
-      });
-      skillObs.unobserve(skillSection);
-    }
-  }, { threshold: 0.2 });
-
-  skillObs.observe(skillSection);
+function openCert(card) {
+  const img = card.querySelector('.cthumb img');
+  if (!img) return;
+  document.getElementById('lbImg').src = img.src;
+  document.getElementById('lbCap').textContent = card.querySelector('.cname').textContent;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
 </script>
 </body>
 </html>
