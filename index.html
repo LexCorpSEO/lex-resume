@@ -142,17 +142,32 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--red);font-size:11px;top:2px}
 
 /* SKILLS */
-.skills-bg{background:var(--ink);border-radius:3px;padding:52px;margin:0 -4px}
+.skills-bg{background:var(--ink);border-radius:6px;padding:48px 52px;margin:0 -4px}
 .skills-bg .sec-label{color:var(--red)}
-.skills-bg h2.sec-title{color:var(--paper)}
-.skills-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:52px}
-.skill-group h4{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;padding-bottom:7px;border-bottom:1px solid rgba(245,240,232,.08)}
-.skill-row{display:flex;align-items:center;gap:12px;margin-bottom:15px}
-.skill-name{font-size:12px;color:rgba(245,240,232,.68);min-width:132px}
-.skill-track{flex:1;height:2px;background:rgba(245,240,232,.1);border-radius:1px;overflow:hidden}
-.skill-fill{height:100%;background:var(--red);border-radius:1px;transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.16,1,.3,1)}
-.skill-fill.on{transform:scaleX(1)}
-.skill-lv{font-family:var(--mono);font-size:9px;color:rgba(245,240,232,.28);white-space:nowrap}
+.skills-bg h2.sec-title{color:var(--paper);margin-bottom:36px}
+.skills-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:48px}
+.skill-group{margin-bottom:8px}
+.skill-group h4{
+  font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;padding-bottom:10px;
+  border-bottom:1px solid rgba(245,240,232,.1);
+}
+.skill-row{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.skill-name{font-size:13px;color:rgba(245,240,232,.85);min-width:140px;flex-shrink:0}
+.skill-track{
+  flex:1;height:6px;background:rgba(245,240,232,.1);
+  border-radius:100px;overflow:hidden;
+}
+.skill-fill{
+  height:100%;background:var(--red);border-radius:100px;
+  width:0%;/* ใช้ width แทน transform — รองรับทุก browser */
+  transition:width 1s cubic-bezier(.16,1,.3,1);
+}
+.skill-lv{
+  font-family:var(--mono);font-size:9px;
+  color:rgba(245,240,232,.35);white-space:nowrap;
+  min-width:62px;text-align:right;
+}
 .badges-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
 .badge{padding:5px 13px;border:1px solid rgba(245,240,232,.12);border-radius:3px;font-family:var(--mono);font-size:9px;color:rgba(245,240,232,.45);letter-spacing:1px;transition:all .2s;cursor:default}
 .badge:hover{border-color:var(--red);color:var(--paper)}
@@ -429,39 +444,39 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   <hr class="section-divider"/>
 
   <!-- SKILLS -->
-  <div class="skills-bg">
+  <div class="skills-bg" id="skillsBg">
     <div class="sec-label" data-th="ความสามารถ" data-en="Capabilities"></div>
     <h2 class="sec-title" data-th="ทักษะ" data-en="SKILLS"></h2>
     <div class="skills-cols">
       <div>
         <div class="skill-group">
-          <h4 data-th="สร้างสรรค์และออกแบบ" data-en="Creative & Design"></h4>
-          <div class="skill-row"><span class="skill-name">Adobe Illustrator</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">Adobe Photoshop</span><div class="skill-track"><div class="skill-fill" style="width:65%"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
-          <div class="skill-row"><span class="skill-name">Adobe Premiere Pro</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">Final Cut Pro</span><div class="skill-track"><div class="skill-fill" style="width:65%"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
-          <div class="skill-row"><span class="skill-name">Canva</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <h4 data-th="🎨 สร้างสรรค์และออกแบบ" data-en="🎨 Creative & Design"></h4>
+          <div class="skill-row"><span class="skill-name">Adobe Illustrator</span><div class="skill-track"><div class="skill-fill" data-w="80"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Adobe Photoshop</span><div class="skill-track"><div class="skill-fill" data-w="65"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
+          <div class="skill-row"><span class="skill-name">Adobe Premiere Pro</span><div class="skill-track"><div class="skill-fill" data-w="80"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Final Cut Pro</span><div class="skill-track"><div class="skill-fill" data-w="65"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
+          <div class="skill-row"><span class="skill-name">Canva</span><div class="skill-track"><div class="skill-fill" data-w="80"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
         </div>
         <div class="skill-group" style="margin-top:32px">
-          <h4 data-th="ภาวะผู้นำและสำนักงาน" data-en="Leadership & Office"></h4>
-          <div class="skill-row"><span class="skill-name" data-th="ภาวะผู้นำ" data-en="Leadership"></span><div class="skill-track"><div class="skill-fill" style="width:88%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name" data-th="การสื่อสาร" data-en="Communication"></span><div class="skill-track"><div class="skill-fill" style="width:88%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">MS Word</span><div class="skill-track"><div class="skill-fill" style="width:96%"></div></div><span class="skill-lv" data-th="เชี่ยวชาญ ★" data-en="Expert ★"></span></div>
-          <div class="skill-row"><span class="skill-name">PowerPoint</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">Excel</span><div class="skill-track"><div class="skill-fill" style="width:65%"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
+          <h4 data-th="👥 ภาวะผู้นำและสำนักงาน" data-en="👥 Leadership & Office"></h4>
+          <div class="skill-row"><span class="skill-name" data-th="ภาวะผู้นำ" data-en="Leadership"></span><div class="skill-track"><div class="skill-fill" data-w="88"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name" data-th="การสื่อสาร" data-en="Communication"></span><div class="skill-track"><div class="skill-fill" data-w="88"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">MS Word</span><div class="skill-track"><div class="skill-fill" data-w="96"></div></div><span class="skill-lv" data-th="เชี่ยวชาญ ★" data-en="Expert ★"></span></div>
+          <div class="skill-row"><span class="skill-name">PowerPoint</span><div class="skill-track"><div class="skill-fill" data-w="80"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Excel</span><div class="skill-track"><div class="skill-fill" data-w="65"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
         </div>
       </div>
       <div>
         <div class="skill-group">
-          <h4 data-th="การตลาดดิจิทัล" data-en="Digital Marketing"></h4>
-          <div class="skill-row"><span class="skill-name">SEO</span><div class="skill-track"><div class="skill-fill" style="width:84%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">Google Ads</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">Facebook Ads</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">CMS</span><div class="skill-track"><div class="skill-fill" style="width:78%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name">HTML/CSS/JS</span><div class="skill-track"><div class="skill-fill" style="width:70%"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <h4 data-th="📣 การตลาดดิจิทัล" data-en="📣 Digital Marketing"></h4>
+          <div class="skill-row"><span class="skill-name">SEO</span><div class="skill-track"><div class="skill-fill" data-w="84"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Google Ads</span><div class="skill-track"><div class="skill-fill" data-w="80"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">Facebook Ads</span><div class="skill-track"><div class="skill-fill" data-w="80"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">CMS Management</span><div class="skill-track"><div class="skill-fill" data-w="78"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name">HTML / CSS / JS</span><div class="skill-track"><div class="skill-fill" data-w="70"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
         </div>
         <div class="skill-group" style="margin-top:32px">
-          <h4 data-th="แพลตฟอร์ม" data-en="Platforms"></h4>
+          <h4 data-th="📱 แพลตฟอร์ม" data-en="📱 Platforms"></h4>
           <div class="badges-wrap">
             <span class="badge hot">Facebook</span><span class="badge hot">Instagram</span>
             <span class="badge hot">TikTok</span><span class="badge hot">YouTube</span>
@@ -746,7 +761,6 @@ function goTo(id) {
     pages[target].scrollTop = 0;
     current = target;
     busy = false;
-    if (target === 'page-home') animateSkills();
   }, 360);
 
   document.querySelectorAll('.nav-links a[data-page]').forEach(a =>
@@ -762,7 +776,6 @@ document.querySelectorAll('.nav-links a[data-page]').forEach(a =>
 // hash on load
 const h0 = location.hash.slice(1);
 if (h0 && pages['page-'+h0]) { goTo(h0); }
-else { animateSkills(); }  // home is default
 
 window.addEventListener('popstate', () => {
   const h = location.hash.slice(1);
@@ -807,17 +820,32 @@ backdrop.addEventListener('touchend', function(e){
   closeNav();
 }, { passive: false });
 
-// ── SKILL BARS ──
-let skillsDone = false;
-function animateSkills() {
-  if (skillsDone) return;
-  skillsDone = true;
-  // wait for page transition to finish
-  setTimeout(() => {
-    document.querySelectorAll('.skill-fill').forEach((bar,i) =>
-      setTimeout(() => bar.classList.add('on'), i * 55));
-  }, 420);
-}
+// ── SKILL BARS — IntersectionObserver ──
+(function(){
+  const skillsBg = document.getElementById('skillsBg');
+  if (!skillsBg) return;
+
+  // reset all bars to 0 first
+  document.querySelectorAll('.skill-fill').forEach(bar => {
+    bar.style.width = '0%';
+    bar.style.transition = 'none';
+  });
+
+  const obs = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect(); // fire once only
+
+    document.querySelectorAll('.skill-fill').forEach((bar, i) => {
+      const target = bar.getAttribute('data-w') || '0';
+      setTimeout(() => {
+        bar.style.transition = 'width 1s cubic-bezier(.16,1,.3,1)';
+        bar.style.width = target + '%';
+      }, i * 60 + 100);
+    });
+  }, { threshold: 0.15 });
+
+  obs.observe(skillsBg);
+})();
 
 // ── PHOTO FILTER ──
 document.querySelectorAll('.fbtn').forEach(btn => {
