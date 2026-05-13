@@ -193,21 +193,40 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 .hlabel{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:var(--mono);transition:color .25s}
 
 /* ══════════════════════════════
-   PAGE: PHOTOGRAPHY
+   PAGE: PORTFOLIO
 ══════════════════════════════ */
 #page-portfolio{background:var(--cream)}
-.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
-.fbtn{padding:6px 15px;border:1px solid var(--border);border-radius:100px;font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);background:white;cursor:pointer;transition:all .2s}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.fbtn{
+  padding:7px 16px;border:1px solid var(--border);border-radius:100px;
+  font-family:var(--mono);font-size:10px;letter-spacing:1px;
+  text-transform:uppercase;color:var(--muted);background:white;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
 .fbtn:hover,.fbtn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* category description */
+.cat-desc{
+  margin-bottom:22px;padding:10px 16px;
+  background:rgba(13,13,13,.05);border-radius:4px;
+  border-left:3px solid var(--red);min-height:38px;
+}
+.cat-desc-text{font-size:12px;color:var(--muted);line-height:1.5}
+/* masonry */
 .masonry{columns:3;column-gap:11px}
-.mitem{break-inside:avoid;margin-bottom:11px;position:relative;overflow:hidden;border-radius:2px;cursor:pointer;border:1px solid var(--border);transition:transform .25s}
-.mitem:hover{transform:scale(1.012)}
+.mitem{break-inside:avoid;margin-bottom:11px;position:relative;overflow:hidden;border-radius:4px;cursor:pointer;border:1px solid var(--border);transition:transform .25s,opacity .3s,filter .3s}
+.mitem:hover{transform:scale(1.015)}
 .mitem img{width:100%;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .mitem:hover img{transform:scale(1.05)}
-.mitem .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.7) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:13px}
+.mitem .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.75) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:12px}
 .mitem:hover .ov{opacity:1}
-.ov span{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:white}
-.add-card{break-inside:avoid;margin-bottom:11px;border:2px dashed var(--border);border-radius:2px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;cursor:pointer;background:white;transition:all .2s}
+.ov span{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:white}
+/* motion card */
+.mitem-motion{cursor:pointer}
+.ov-motion{align-items:center;justify-content:center;flex-direction:column;gap:8px;background:rgba(13,13,13,.55)!important;opacity:0}
+.mitem-motion:hover .ov-motion{opacity:1}
+.play-btn-small{width:44px;height:44px;border-radius:50%;background:var(--red);color:white;display:flex;align-items:center;justify-content:center;font-size:16px;padding-left:3px;box-shadow:0 4px 16px rgba(233,64,64,.5)}
+/* add card */
+.add-card{break-inside:avoid;margin-bottom:11px;border:2px dashed var(--border);border-radius:4px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;cursor:pointer;background:white;transition:all .2s}
 .add-card:hover{border-color:var(--red);background:rgba(233,64,64,.02)}
 .add-card span{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 
@@ -529,31 +548,129 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 </div><!-- /page-home -->
 
 <!-- ══════════════════════════════════════════
-     PAGE: PHOTOGRAPHY
+     PAGE: PORTFOLIO
 ══════════════════════════════════════════ -->
 <div class="page" id="page-portfolio">
   <div class="sec-label" data-th="ผลงานสร้างสรรค์" data-en="Creative Work"></div>
-  <h2 class="sec-title" data-th="ภาพถ่าย" data-en="PHOTOGRAPHY"></h2>
+  <h2 class="sec-title" data-th="ผลงาน" data-en="PORTFOLIO"></h2>
 
+  <!-- FILTER BAR -->
   <div class="filter-bar">
-    <button class="fbtn on" data-f="all"       data-th="ทั้งหมด"  data-en="All"></button>
-    <button class="fbtn"    data-f="brand"     data-th="แบรนด์"   data-en="Brand"></button>
-    <button class="fbtn"    data-f="product"   data-th="สินค้า"   data-en="Product"></button>
-    <button class="fbtn"    data-f="lifestyle" data-th="ไลฟ์สไตล์" data-en="Lifestyle"></button>
-    <button class="fbtn"    data-f="food"      data-th="อาหาร"   data-en="Food"></button>
+    <button class="fbtn on" data-f="all"      data-th="🌟 ทั้งหมด"    data-en="🌟 All"></button>
+    <button class="fbtn"    data-f="photo"    data-th="📷 ถ่ายภาพ"    data-en="📷 Photography"></button>
+    <button class="fbtn"    data-f="design"   data-th="🎨 กราฟิก"     data-en="🎨 Graphic Design"></button>
+    <button class="fbtn"    data-f="social"   data-th="📱 โซเชียล"    data-en="📱 Social Media"></button>
+    <button class="fbtn"    data-f="campaign" data-th="🔥 แคมเปญ"     data-en="🔥 Campaign"></button>
+    <button class="fbtn"    data-f="motion"   data-th="🎬 วิดีโอ"     data-en="🎬 Motion"></button>
   </div>
 
+  <!-- CATEGORY DESCRIPTION -->
+  <div class="cat-desc" id="catDesc">
+    <span class="cat-desc-text" data-f="all"
+      data-th="ผลงานทั้งหมด — ภาพถ่าย, กราฟิก, โซเชียล, แคมเปญ, และวิดีโอ"
+      data-en="All works — Photography, Graphic Design, Social Media, Campaigns and Motion"></span>
+    <span class="cat-desc-text" data-f="photo" style="display:none"
+      data-th="ภาพถ่าย Product / Food / Lifestyle / Event — ถ่ายเองทุกภาพ"
+      data-en="Product / Food / Lifestyle / Event photography — all shot personally"></span>
+    <span class="cat-desc-text" data-f="design" style="display:none"
+      data-th="Artwork, Package Design, Brand Kit — งาน Graphic Design ครบวงจร"
+      data-en="Artwork, Package Design, Brand Kit — full graphic design work"></span>
+    <span class="cat-desc-text" data-f="social" style="display:none"
+      data-th="Banner FB/IG, Story, TikTok Cover — content ที่ใช้งานจริงบนโซเชียล"
+      data-en="FB/IG Banners, Stories, TikTok Covers — real content published on social platforms"></span>
+    <span class="cat-desc-text" data-f="campaign" style="display:none"
+      data-th="Key Visual โปรโมชัน, Seasonal Sale, แคมเปญระดับแบรนด์"
+      data-en="Promotional Key Visuals, Seasonal Sales, brand-level campaigns"></span>
+    <span class="cat-desc-text" data-f="motion" style="display:none"
+      data-th="Video Ads, Reels, Animation — คลิกเพื่อดูบน Google Drive"
+      data-en="Video Ads, Reels, Animation — click to watch on Google Drive"></span>
+  </div>
+
+  <!-- MASONRY GRID -->
   <div class="masonry" id="masonry">
-    <!-- วิธีเพิ่มรูป: แทนที่ src="..." ด้วย URL รูปของคุณ และ data-cat คือประเภท -->
-    <div class="mitem" data-cat="brand"><img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=75" loading="lazy" alt="Brand Campaign"/><div class="ov"><span data-th="แคมเปญแบรนด์" data-en="Brand Campaign"></span></div></div>
-    <div class="mitem" data-cat="food"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75" loading="lazy" alt="Food"/><div class="ov"><span data-th="ถ่ายภาพอาหาร — Oishi" data-en="Food Photography — Oishi"></span></div></div>
-    <div class="mitem" data-cat="product"><img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=75" loading="lazy" alt="Product"/><div class="ov"><span data-th="ถ่ายภาพสินค้า" data-en="Product Shot"></span></div></div>
-    <div class="mitem" data-cat="lifestyle"><img src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?w=600&q=75" loading="lazy" alt="Lifestyle"/><div class="ov"><span data-th="ไลฟ์สไตล์" data-en="Lifestyle Content"></span></div></div>
-    <div class="mitem" data-cat="brand"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=75" loading="lazy" alt="Visual"/><div class="ov"><span data-th="สื่อภาพแคมเปญ" data-en="Visual Campaign"></span></div></div>
-    <div class="mitem" data-cat="product"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=75" loading="lazy" alt="Olay"/><div class="ov"><span data-th="สินค้า — Olay" data-en="Product — Olay"></span></div></div>
-    <div class="mitem" data-cat="food"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75" loading="lazy" alt="Food Styling"/><div class="ov"><span data-th="จัดจาน" data-en="Food Styling"></span></div></div>
-    <div class="mitem" data-cat="lifestyle"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75" loading="lazy" alt="Campaign"/><div class="ov"><span data-th="ถ่ายแคมเปญ" data-en="Campaign Shoot"></span></div></div>
-    <div class="add-card" onclick="alert('วาง URL รูปของคุณใน src ของ .mitem')">
+
+    <!-- ═══════════════════════════════════════════════
+    📌 วิธีเพิ่มรูปของคุณ:
+       1. เปลี่ยน src="URL_รูป" เป็น link รูปจริง
+       2. เปลี่ยน data-cat เป็นกลุ่มที่ต้องการ:
+          photo | design | social | campaign | motion
+       3. ใส่ชื่อใน data-th และ data-en
+    ════════════════════════════════════════════════ -->
+
+    <!-- 📷 PHOTOGRAPHY -->
+    <div class="mitem" data-cat="photo">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75" loading="lazy" alt="Food"/>
+      <div class="ov"><span data-th="📷 ถ่ายภาพอาหาร — Oishi" data-en="📷 Food Photography — Oishi"></span></div>
+    </div>
+    <div class="mitem" data-cat="photo">
+      <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=75" loading="lazy" alt="Product"/>
+      <div class="ov"><span data-th="📷 ถ่ายภาพสินค้า" data-en="📷 Product Shot"></span></div>
+    </div>
+    <div class="mitem" data-cat="photo">
+      <img src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?w=600&q=75" loading="lazy" alt="Lifestyle"/>
+      <div class="ov"><span data-th="📷 Lifestyle Content" data-en="📷 Lifestyle Content"></span></div>
+    </div>
+    <div class="mitem" data-cat="photo">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75" loading="lazy" alt="Food Styling"/>
+      <div class="ov"><span data-th="📷 จัดสไตล์อาหาร" data-en="📷 Food Styling"></span></div>
+    </div>
+
+    <!-- 🎨 GRAPHIC DESIGN -->
+    <div class="mitem" data-cat="design">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=75" loading="lazy" alt="Graphic"/>
+      <div class="ov"><span data-th="🎨 Package Design" data-en="🎨 Package Design"></span></div>
+    </div>
+    <div class="mitem" data-cat="design">
+      <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=75" loading="lazy" alt="Design"/>
+      <div class="ov"><span data-th="🎨 Brand Identity" data-en="🎨 Brand Identity"></span></div>
+    </div>
+    <div class="mitem" data-cat="design">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=75" loading="lazy" alt="Design Kit"/>
+      <div class="ov"><span data-th="🎨 Design Kit — Olay" data-en="🎨 Design Kit — Olay"></span></div>
+    </div>
+
+    <!-- 📱 SOCIAL MEDIA -->
+    <div class="mitem" data-cat="social">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75" loading="lazy" alt="Social"/>
+      <div class="ov"><span data-th="📱 Social Content — FB/IG" data-en="📱 Social Content — FB/IG"></span></div>
+    </div>
+    <div class="mitem" data-cat="social">
+      <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=75" loading="lazy" alt="Social Story"/>
+      <div class="ov"><span data-th="📱 Instagram Story" data-en="📱 Instagram Story"></span></div>
+    </div>
+    <div class="mitem" data-cat="social">
+      <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=75" loading="lazy" alt="TikTok"/>
+      <div class="ov"><span data-th="📱 TikTok Cover — Gowow" data-en="📱 TikTok Cover — Gowow"></span></div>
+    </div>
+
+    <!-- 🔥 CAMPAIGN -->
+    <div class="mitem" data-cat="campaign">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=75" loading="lazy" alt="Campaign"/>
+      <div class="ov"><span data-th="🔥 Key Visual — Seasonal Sale" data-en="🔥 Key Visual — Seasonal Sale"></span></div>
+    </div>
+    <div class="mitem" data-cat="campaign">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=75" loading="lazy" alt="Promotion"/>
+      <div class="ov"><span data-th="🔥 โปรโมชัน — BnB Home" data-en="🔥 Promotion — BnB Home"></span></div>
+    </div>
+
+    <!-- 🎬 MOTION (thumbnail + link to Drive) -->
+    <div class="mitem mitem-motion" data-cat="motion" onclick="alert('ใส่ Google Drive link ของวิดีโอที่นี่')">
+      <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=75" loading="lazy" alt="Motion"/>
+      <div class="ov ov-motion">
+        <div class="play-btn-small">▶</div>
+        <span data-th="🎬 Video Ads — Oishi" data-en="🎬 Video Ads — Oishi"></span>
+      </div>
+    </div>
+    <div class="mitem mitem-motion" data-cat="motion" onclick="alert('ใส่ Google Drive link ของวิดีโอที่นี่')">
+      <img src="https://images.unsplash.com/photo-1536240478700-b869ad10e128?w=600&q=75" loading="lazy" alt="Motion2"/>
+      <div class="ov ov-motion">
+        <div class="play-btn-small">▶</div>
+        <span data-th="🎬 TikTok Reel — Gowow" data-en="🎬 TikTok Reel — Gowow"></span>
+      </div>
+    </div>
+
+    <!-- + เพิ่มรูปของคุณ -->
+    <div class="add-card" onclick="alert('เพิ่มรูปโดยเพิ่ม .mitem ใหม่\nดูคำอธิบายในโค้ดด้านบน')">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
       <span data-th="+ เพิ่มรูปของคุณ" data-en="+ Add your photo"></span>
     </div>
@@ -853,12 +970,21 @@ document.querySelectorAll('.fbtn').forEach(btn => {
     document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
     btn.classList.add('on');
     const f = btn.dataset.f;
+
+    // filter items
     document.querySelectorAll('#masonry .mitem').forEach(item => {
       const match = f === 'all' || item.dataset.cat === f;
-      item.style.opacity = match ? '1' : '0.13';
-      item.style.filter  = match ? '' : 'grayscale(1)';
+      item.style.opacity    = match ? '1' : '0.12';
+      item.style.filter     = match ? '' : 'grayscale(1)';
       item.style.pointerEvents = match ? 'all' : 'none';
-      item.style.transition = 'opacity .3s,filter .3s';
+    });
+
+    // update category description
+    document.querySelectorAll('.cat-desc-text').forEach(el => {
+      el.style.display = el.dataset.f === f ? '' : 'none';
+      if (el.dataset.f === f) {
+        el.innerHTML = el.getAttribute('data-' + lang) || el.textContent;
+      }
     });
   });
 });
