@@ -16,29 +16,33 @@
   --sans:'DM Sans','Sarabun',sans-serif;
   --display:'Bebas Neue',sans-serif;
 }
-html{scroll-behavior:auto}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;overflow:hidden;height:100vh}
+html{scroll-behavior:auto;height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;height:100%}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
 
 /* ── NAV BACKDROP (mobile) ── */
-.nav-backdrop{display:none;position:fixed;inset:0;background:rgba(13,13,13,.5);z-index:150;-webkit-tap-highlight-color:transparent}
+.nav-backdrop{display:none;position:fixed;inset:0;background:rgba(13,13,13,.55);z-index:350;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .nav-backdrop.show{display:block}
 
 /* ── TOPBAR mobile ── */
-.topbar{display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:var(--ink);align-items:center;justify-content:space-between;padding:0 18px;padding-top:env(safe-area-inset-top);z-index:300;border-bottom:2px solid var(--red)}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:var(--ink);align-items:center;justify-content:space-between;padding:0 16px;z-index:400;border-bottom:2px solid var(--red)}
 .topbar-name{font-family:var(--display);font-size:18px;color:var(--paper);letter-spacing:2px}
-.topbar-right{display:flex;align-items:center;gap:12px}
-.burger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px}
-.burger span{display:block;width:20px;height:2px;background:var(--paper);transition:all .25s}
+.topbar-right{display:flex;align-items:center;gap:8px}
+/* burger — พื้นที่กดใหญ่ขึ้น 44x44px ตาม iOS HIG */
+.burger{background:none;border:none;cursor:pointer;
+  width:44px;height:44px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.burger span{display:block;width:22px;height:2px;background:var(--paper);transition:all .25s;border-radius:2px}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ── SIDENAV ── */
 .sidenav{
   position:fixed;left:0;top:0;bottom:0;width:var(--nav-w);
   background:var(--ink);display:flex;flex-direction:column;
-  padding:44px 0 28px;z-index:200;
+  padding:44px 0 28px;z-index:380;
   border-right:3px solid var(--red);
   transition:transform .3s cubic-bezier(.16,1,.3,1);
 }
@@ -84,6 +88,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 }
 .page.active{opacity:1;transform:none;pointer-events:all}
 .page.exit{opacity:0;transform:translateX(-28px)}
+
+/* on mobile — push page content below topbar, app fills full height */
+@media(max-width:960px){
+  .app{margin-left:0;height:100vh}
+  .page{
+    top:var(--topbar-h); /* ← เริ่มใต้ topbar เท่านั้น */
+    bottom:0;left:0;right:0;
+    padding:20px 20px 80px;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-y;
+  }
+}
 
 /* ── SECTION LABELS ── */
 .sec-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:10px}
@@ -231,25 +247,27 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   .topbar{display:flex}
-  .sidenav{transform:translateX(-100%)}
-  .sidenav.open{transform:none}
-  .app{margin-left:0}
-  .page{padding:calc(var(--topbar-h) + 20px) 22px 80px;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+  .sidenav{transform:translateX(-100%);padding-top:calc(var(--topbar-h) + 12px)}
+  .sidenav.open{transform:translateX(0)}
   .exp-item{grid-template-columns:1fr;gap:8px}
   .skills-cols{grid-template-columns:1fr;gap:32px}
-  .skills-bg{padding:32px 22px}
+  .skills-bg{padding:32px 20px}
   .edu-grid{grid-template-columns:1fr}
   .hobby-row{grid-template-columns:repeat(2,1fr)}
   .masonry{columns:2}
   .vgrid{grid-template-columns:1fr}
   .cgrid{grid-template-columns:repeat(2,1fr)}
-  h2.sec-title{margin-bottom:28px}
-  /* prevent tap highlight flash on iOS */
-  a,button,.mitem,.ccard,.fbtn,.pill{-webkit-tap-highlight-color:transparent}
+  h2.sec-title{margin-bottom:24px}
+  .nav-links li a{padding:14px 26px;font-size:12px}
+  a,button,.mitem,.ccard,.fbtn,.pill,.burger,.nav-links li a{
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
 }
 @media(max-width:500px){
   .masonry{columns:1}
   .cgrid{grid-template-columns:1fr}
+  .page{padding:16px 16px 72px}
 }
 </style>
 </head>
@@ -766,22 +784,28 @@ function openNav() {
   sidenav.classList.add('open');
   burger.classList.add('open');
   backdrop.classList.add('show');
-  document.body.style.overflow = 'hidden';
 }
 
 function closeNav() {
   sidenav.classList.remove('open');
   burger.classList.remove('open');
   backdrop.classList.remove('show');
-  document.body.style.overflow = '';
 }
 
-burger.addEventListener('click', () => {
+function toggleNav(e) {
+  e.preventDefault();
+  e.stopPropagation();
   sidenav.classList.contains('open') ? closeNav() : openNav();
-});
+}
+
+burger.addEventListener('click', toggleNav);
+burger.addEventListener('touchend', toggleNav, { passive: false });
 
 backdrop.addEventListener('click', closeNav);
-backdrop.addEventListener('touchstart', closeNav, {passive:true});
+backdrop.addEventListener('touchend', function(e){
+  e.preventDefault();
+  closeNav();
+}, { passive: false });
 
 // ── SKILL BARS ──
 let skillsDone = false;
@@ -820,13 +844,11 @@ document.querySelectorAll('#masonry .mitem').forEach(item => {
     document.getElementById('lbCap').textContent =
       cap ? cap.getAttribute('data-'+lang) || cap.textContent : '';
     document.getElementById('lb').classList.add('on');
-    document.body.style.overflow = 'hidden';
   });
 });
 
 function closeLb() {
   document.getElementById('lb').classList.remove('on');
-  document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key==='Escape') closeLb(); });
 
@@ -836,7 +858,6 @@ function openCert(card) {
   document.getElementById('lbImg').src = img.src;
   document.getElementById('lbCap').textContent = card.querySelector('.cname').textContent;
   document.getElementById('lb').classList.add('on');
-  document.body.style.overflow = 'hidden';
 }
 </script>
 </body>
