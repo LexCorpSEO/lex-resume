@@ -266,7 +266,67 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 .lb-close:hover{color:var(--paper)}
 .lb-cap{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;letter-spacing:2px;color:rgba(245,240,232,.32);text-transform:uppercase;white-space:nowrap}
 
-/* ── RESPONSIVE ── */
+/* ══════════════════════════════
+   PAGE: WEBSITES
+══════════════════════════════ */
+#page-websites{background:var(--paper)}
+.web-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.web-card{
+  border:1px solid var(--border);border-radius:6px;
+  overflow:hidden;background:var(--bgCard,white);
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+  text-decoration:none;display:block;
+}
+.web-card:hover{
+  border-color:var(--ink);transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(13,13,13,.1);
+}
+.web-preview{
+  position:relative;aspect-ratio:16/9;
+  background:var(--cream);overflow:hidden;
+}
+.web-preview iframe{
+  width:200%;height:200%;
+  border:none;display:block;
+  transform:scale(.5);transform-origin:top left;
+  pointer-events:none;
+}
+.web-preview-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(13,13,13,0);
+  transition:background .25s;
+}
+.web-card:hover .web-preview-overlay{background:rgba(13,13,13,.08)}
+.web-visit-btn{
+  opacity:0;transform:translateY(6px);
+  transition:opacity .25s,transform .25s;
+  background:var(--ink);color:var(--paper);
+  padding:8px 20px;border-radius:100px;
+  font-family:var(--mono);font-size:10px;letter-spacing:2px;
+}
+.web-card:hover .web-visit-btn{opacity:1;transform:none}
+.web-info{padding:18px 20px 20px;border-top:1px solid var(--border)}
+.web-tag{
+  font-family:var(--mono);font-size:9px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--red);margin-bottom:5px;
+}
+.web-name{
+  font-family:var(--display);font-size:22px;letter-spacing:1px;
+  color:var(--ink);margin-bottom:5px;line-height:1.2;
+}
+.web-desc{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:12px}
+.web-url{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10px;color:var(--muted);
+  transition:color .2s;
+}
+.web-card:hover .web-url{color:var(--red)}
+.web-role{
+  display:inline-block;margin-top:8px;
+  padding:3px 10px;background:var(--cream);
+  border-radius:100px;font-size:10px;color:var(--muted);
+}
 @media(max-width:960px){
   .topbar{display:flex}
   .sidenav{transform:translateX(-100%);padding-top:calc(var(--topbar-h) + 12px)}
@@ -279,6 +339,7 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   .masonry{columns:2}
   .vgrid{grid-template-columns:1fr}
   .cgrid{grid-template-columns:repeat(2,1fr)}
+  .web-grid{grid-template-columns:1fr}
   h2.sec-title{margin-bottom:24px}
   .nav-links li a{padding:14px 26px;font-size:12px}
   a,button,.mitem,.ccard,.fbtn,.pill,.burger,.nav-links li a{
@@ -319,6 +380,7 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
     <div class="nav-section-label" data-th="ผลงาน" data-en="Portfolio"></div>
     <li><a href="#" data-page="portfolio"><span class="nicon">📷</span><span data-th="ภาพถ่าย" data-en="Photography"></span></a></li>
     <li><a href="#" data-page="graphic"><span class="nicon">🎨</span><span data-th="กราฟิก" data-en="Graphic Design"></span></a></li>
+    <li><a href="#" data-page="websites"><span class="nicon">🌐</span><span data-th="เว็บไซต์" data-en="Websites"></span></a></li>
     <li><a href="#" data-page="videos"><span class="nicon">🎬</span><span data-th="วิดีโอ" data-en="Videos"></span></a></li>
     <li><a href="#" data-page="certs"><span class="nicon">🏆</span><span data-th="ใบรับรอง" data-en="Certificates"></span></a></li>
   </ul>
@@ -802,6 +864,98 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
       <span data-th="+ เพิ่มใบรับรองของคุณ" data-en="+ Add your certificate"></span>
     </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: WEBSITES
+══════════════════════════════════════════ -->
+<div class="page" id="page-websites">
+  <div class="sec-label" data-th="ผลงานเว็บไซต์" data-en="Web Projects"></div>
+  <h2 class="sec-title" data-th="เว็บไซต์" data-en="WEBSITES"></h2>
+
+  <div class="web-grid">
+
+    <!-- ① HELIOTECH -->
+    <a class="web-card" href="https://heliotech.co.th" target="_blank" rel="noopener">
+      <div class="web-preview">
+        <iframe src="https://heliotech.co.th" loading="lazy" title="Heliotech" scrolling="no" tabindex="-1"></iframe>
+        <div class="web-preview-overlay">
+          <span class="web-visit-btn">🔗 <span data-th="เข้าชมเว็บ" data-en="Visit Site"></span></span>
+        </div>
+      </div>
+      <div class="web-info">
+        <div class="web-tag" data-th="โซล่าเซลล์ · พลังงาน" data-en="Solar Energy · B2B"></div>
+        <div class="web-name">Heliotech</div>
+        <div class="web-desc" data-th="บริษัทโซล่าเซลล์ครบวงจร ตัวแทนจำหน่าย Longi Solar อย่างเป็นทางการ บริการติดตั้งสำหรับภาคธุรกิจ อุตสาหกรรม และที่พักอาศัย" data-en="Full-service solar company, official Longi Solar distributor for business, industrial and residential installation."></div>
+        <div class="web-url">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          heliotech.co.th
+        </div>
+        <span class="web-role" data-th="บทบาท: Digital Marketing / SEO / Content" data-en="Role: Digital Marketing / SEO / Content"></span>
+      </div>
+    </a>
+
+    <!-- ② OLINOLAND -->
+    <a class="web-card" href="https://www.olinoland.com" target="_blank" rel="noopener">
+      <div class="web-preview">
+        <iframe src="https://www.olinoland.com" loading="lazy" title="Olinoland" scrolling="no" tabindex="-1"></iframe>
+        <div class="web-preview-overlay">
+          <span class="web-visit-btn">🔗 <span data-th="เข้าชมเว็บ" data-en="Visit Site"></span></span>
+        </div>
+      </div>
+      <div class="web-info">
+        <div class="web-tag" data-th="ชา · เครป · แฟรนไชส์" data-en="Tea · Crepe · Franchise"></div>
+        <div class="web-name">Olinoland</div>
+        <div class="web-desc" data-th="แบรนด์ชาและเครปชั้นนำ ผู้นำด้านขนมและเครื่องดื่มที่สร้างความสุข พร้อมระบบแฟรนไชส์ทั่วประเทศ" data-en="Leading tea and crepe brand, top F&B franchise with nationwide network bringing happiness to customers."></div>
+        <div class="web-url">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          olinoland.com
+        </div>
+        <span class="web-role" data-th="บทบาท: Digital Marketing / Social Media / Ads" data-en="Role: Digital Marketing / Social Media / Ads"></span>
+      </div>
+    </a>
+
+    <!-- ③ OJI OMAKASE -->
+    <a class="web-card" href="https://ojiomakase.com/th/" target="_blank" rel="noopener">
+      <div class="web-preview">
+        <iframe src="https://ojiomakase.com/th/" loading="lazy" title="OJI Omakase" scrolling="no" tabindex="-1"></iframe>
+        <div class="web-preview-overlay">
+          <span class="web-visit-btn">🔗 <span data-th="เข้าชมเว็บ" data-en="Visit Site"></span></span>
+        </div>
+      </div>
+      <div class="web-info">
+        <div class="web-tag" data-th="ร้านอาหารญี่ปุ่น · โอมากาเสะ" data-en="Japanese Restaurant · Omakase"></div>
+        <div class="web-name">OJI Omakase</div>
+        <div class="web-desc" data-th="ร้านโอมากาเสะก่อตั้งปี 2020 มอบประสบการณ์ซูชิระดับพรีเมียมในบรรยากาศผ่อนคลาย อาหารยอดเยี่ยมในราคาที่เข้าถึงได้" data-en="Premium omakase experience since 2020 — outstanding sushi in a relaxed atmosphere at accessible prices."></div>
+        <div class="web-url">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          ojiomakase.com
+        </div>
+        <span class="web-role" data-th="บทบาท: Content / Photography / Social Media" data-en="Role: Content / Photography / Social Media"></span>
+      </div>
+    </a>
+
+    <!-- ④ MEDICA -->
+    <a class="web-card" href="https://www.medica.co.th" target="_blank" rel="noopener">
+      <div class="web-preview">
+        <iframe src="https://www.medica.co.th" loading="lazy" title="Medica" scrolling="no" tabindex="-1"></iframe>
+        <div class="web-preview-overlay">
+          <span class="web-visit-btn">🔗 <span data-th="เข้าชมเว็บ" data-en="Visit Site"></span></span>
+        </div>
+      </div>
+      <div class="web-info">
+        <div class="web-tag" data-th="อุปกรณ์การแพทย์ · B2B" data-en="Medical Equipment · B2B"></div>
+        <div class="web-name">Medica</div>
+        <div class="web-desc" data-th="บริษัท เมดดิก้า จำกัด ผู้ให้บริการอุปกรณ์ทางการแพทย์ชั้นนำ ถุงมือผ่าตัด ถุงบรรจุสารคัดหลั่ง และเตียงผ่าตัด" data-en="Medica Co., Ltd. — leading medical equipment provider supplying surgical gloves, specimen bags and operating tables."></div>
+        <div class="web-url">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          medica.co.th
+        </div>
+        <span class="web-role" data-th="บทบาท: Digital Marketing / SEO / Google Ads" data-en="Role: Digital Marketing / SEO / Google Ads"></span>
+      </div>
+    </a>
+
   </div>
 </div>
 
