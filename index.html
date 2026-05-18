@@ -141,6 +141,20 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 .exp-bullets li{font-size:13px;color:var(--muted);padding-left:16px;position:relative;line-height:1.65}
 .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--red);font-size:11px;top:2px}
 
+/* INDUSTRIES */
+.industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:4px}
+.ind-card{
+  padding:20px 18px;border:1px solid var(--border);border-radius:6px;
+  background:white;transition:all .2s;
+}
+.ind-card:hover{border-color:var(--red);transform:translateY(-2px)}
+.ind-icon{font-size:26px;margin-bottom:10px}
+.ind-name{font-family:var(--display);font-size:17px;letter-spacing:1px;color:var(--ink);margin-bottom:5px;line-height:1.2}
+.ind-brands{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--muted);line-height:1.6}
+
+@media(max-width:960px){.industry-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.industry-grid{grid-template-columns:1fr}}
+
 /* SKILLS */
 .skills-bg{background:var(--ink);border-radius:6px;padding:48px 52px;margin:0 -4px}
 .skills-bg .sec-label{color:var(--red)}
@@ -391,7 +405,7 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   </div>
 
   <div class="sidenav-foot">
-    © 2024 Kerkrit K.<br>
+    © 2026 Kerkrit K.<br>
     Samut Prakan, TH
   </div>
 </nav>
@@ -407,16 +421,16 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   <!-- HERO -->
   <div class="hero">
     <div class="hero-eyebrow">
-      <span data-th="ผู้นำทีม Digital Marketing · กรุงเทพฯ" data-en="Digital Marketing Team Leader · Bangkok, TH"></span>
+      <span data-th="Digital Marketing Strategist & Creative Director · กรุงเทพฯ" data-en="Digital Marketing Strategist & Creative Director · Bangkok, TH"></span>
     </div>
     <h1 class="hero-name">Kerkrit<em>Koch<br>druang</em></h1>
     <p class="hero-bio">
-      <span data-th="ผู้นำทีม Digital Marketing ที่มีประสบการณ์กว่า <strong>9 ปี</strong> ในการขับเคลื่อนกลยุทธ์การตลาดที่มีประสิทธิภาพ สร้าง content มัลติมีเดียที่ดึงดูดใจ และเพิ่มการรับรู้แบรนด์บนทุกแพลตฟอร์มหลัก"
-             data-en="Dynamic Digital Marketing Team Leader with <strong>9 years</strong> of experience driving impactful strategies, creating engaging multimedia content, and building brand visibility across every major platform."></span>
+      <span data-th="Head of Digital Marketing ที่มีประสบการณ์กว่า <strong>11 ปี</strong> ในการวางกลยุทธ์และขับเคลื่อนแคมเปญแบบครบวงจร ตั้งแต่ Strategy, Creative Production จนถึง Performance Marketing ผ่านประสบการณ์จริงกับแบรนด์ระดับโลกและองค์กรชั้นนำกว่า <strong>6 อุตสาหกรรม</strong>"
+             data-en="Multi-industry Digital Marketing Leader with <strong>11+ years</strong> driving end-to-end campaigns — from Strategy and Creative Production to Performance Marketing — across <strong>6 industries</strong> with world-class brands and leading Thai organizations."></span>
     </p>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-n">9<sup>+</sup></div><div class="stat-l" data-th="ปีประสบการณ์" data-en="Years Exp."></div></div>
-      <div class="stat"><div class="stat-n">4</div><div class="stat-l" data-th="แบรนด์ใหญ่" data-en="Major Brands"></div></div>
+      <div class="stat"><div class="stat-n">11<sup>+</sup></div><div class="stat-l" data-th="ปีประสบการณ์" data-en="Years Exp."></div></div>
+      <div class="stat"><div class="stat-n">6</div><div class="stat-l" data-th="อุตสาหกรรม" data-en="Industries"></div></div>
       <div class="stat"><div class="stat-n">10<sup>+</sup></div><div class="stat-l" data-th="แพลตฟอร์ม" data-en="Platforms"></div></div>
     </div>
     <div class="pill-row">
@@ -443,17 +457,16 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
       <div class="exp-meta">
         <div class="exp-period">2021 — <span data-th="ปัจจุบัน" data-en="Present"></span></div>
         <div class="exp-co">CRC Thai Watsadu<br>Co., Ltd.</div>
-        <span class="exp-badge" data-th="งานปัจจุบัน" data-en="Current"></span>
+        <span class="exp-badge" data-th="งานปัจจุบัน · 5+ ปี" data-en="Current · 5+ yrs"></span>
       </div>
       <div class="exp-content">
-        <h3 data-th="หัวหน้าทีม Digital Marketing" data-en="Digital Marketing Team Leader"></h3>
+        <h3 data-th="Head of Digital Marketing & Creative Production" data-en="Head of Digital Marketing & Creative Production"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="ผลิตและจัดการสื่อออนไลน์สำหรับ BnB Home, Facebook, Instagram และ LINE" data-en="Produced and managed online media for BnB Home, Facebook, Instagram and LINE"></span></li>
-          <li><span data-th="ผลิต video content ร่วมกับ influencer & supplier สำหรับแคมเปญแบรนด์" data-en="Created video content, collaborated with influencers & suppliers for brand campaigns"></span></li>
-          <li><span data-th="นำทีม omni-channel media สำหรับเว็บไซต์และแอปมือถือ Thai Watsadu & BnB Home" data-en="Led omni-channel media for Thai Watsadu & BnB Home websites and mobile apps"></span></li>
-          <li><span data-th="บริหาร CMS — landing pages, บทความ และ content โปรโมชัน" data-en="Managed CMS — landing pages, articles and promotional content"></span></li>
-          <li><span data-th="วางกลยุทธ์ Google Ads และ SEO เพื่อเพิ่มการมองเห็นสินค้าบน e-commerce" data-en="Executed Google Ads & SEO strategies to enhance product visibility on e-commerce"></span></li>
-          <li><span data-th="ขยายงานสู่ creative video สำหรับแบรนด์ Gowow บน TikTok (2022)" data-en="Expanded to TikTok creative video production for the Gowow brand (2022)"></span></li>
+          <li><span data-th="นำทีมวางกลยุทธ์และผลิต content แบบ omni-channel สำหรับ Thai Watsadu & BnB Home ครอบคลุมเว็บ, แอป, Facebook, Instagram และ LINE" data-en="Led omni-channel strategy and content production for Thai Watsadu & BnB Home across web, app, Facebook, Instagram and LINE"></span></li>
+          <li><span data-th="ขยาย TikTok presence ให้กับแบรนด์ Gowow ด้วย short-form video ส่งผลให้ engagement เติบโตอย่างต่อเนื่อง (2022)" data-en="Grew Gowow's TikTok presence through short-form video strategy, driving consistent engagement growth (2022)"></span></li>
+          <li><span data-th="บริหาร CMS และ e-commerce content ครบวงจร ทั้ง landing pages, บทความ และ promotional assets" data-en="Managed full-cycle CMS and e-commerce content including landing pages, articles and promotional assets"></span></li>
+          <li><span data-th="ออกแบบและดำเนินกลยุทธ์ Google Ads & SEO เพื่อเพิ่ม organic visibility และ conversion สำหรับสินค้าบน platform" data-en="Designed and executed Google Ads & SEO strategy to increase organic visibility and platform conversions"></span></li>
+          <li><span data-th="ประสานงานกับ influencer, supplier และ creative agency เพื่อผลิตแคมเปญที่ตรงกลุ่มเป้าหมาย" data-en="Coordinated with influencers, suppliers and creative agencies to produce targeted brand campaigns"></span></li>
         </ul>
       </div>
     </div>
@@ -464,13 +477,12 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         <div class="exp-co">Olino Premium<br>Foods Co., Ltd.</div>
       </div>
       <div class="exp-content">
-        <h3 data-th="นักการตลาดดิจิทัลและสื่อ" data-en="Digital Marketing & Media Services"></h3>
+        <h3 data-th="Digital Marketing Strategist & Content Creator" data-en="Digital Marketing Strategist & Content Creator"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="จัดการและผลิตสื่อการตลาดทั้ง online และ offline" data-en="Managed and produced marketing materials for both online and offline channels"></span></li>
-          <li><span data-th="สร้าง content โฆษณา — ถ่ายภาพ, ถ่ายวิดีโอ และตัดต่อ" data-en="Created advertising content — photography, videography and video editing"></span></li>
-          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO เพื่อเพิ่ม online visibility" data-en="Executed SMM strategies and SEO to increase online visibility"></span></li>
-          <li><span data-th="ใช้ Facebook Ads & Google Ads เพื่อหาลูกค้า retail และ franchise" data-en="Utilized Facebook Ads & Google Ads to acquire retail and franchise customers"></span></li>
-          <li><span data-th="ประสานงานแคมเปญกับ LINE MAN, Grab, Foodpanda, GET" data-en="Coordinated campaigns with LINE MAN, Grab, Foodpanda and GET"></span></li>
+          <li><span data-th="วางกลยุทธ์และผลิต content ครบวงจร ทั้ง online และ offline ให้สอดคล้องกับ brand identity" data-en="Developed and executed integrated content strategy across online and offline channels aligned with brand identity"></span></li>
+          <li><span data-th="ดำเนิน Facebook Ads & Google Ads เพื่อหาลูกค้าใหม่ทั้งกลุ่ม retail และ franchise — ขยายเครือข่ายแฟรนไชส์ได้อย่างมีนัยสำคัญ" data-en="Ran Facebook Ads & Google Ads to acquire retail and franchise leads — significantly expanded franchise network"></span></li>
+          <li><span data-th="ประสานงานแคมเปญ delivery กับ LINE MAN, Grab, Foodpanda และ GET เพิ่ม revenue ช่องทาง online" data-en="Coordinated delivery campaigns with LINE MAN, Grab, Foodpanda and GET, growing online revenue channel"></span></li>
+          <li><span data-th="ผลิต content ถ่ายภาพและวิดีโอสำหรับโฆษณาและโซเชียลมีเดียด้วยตัวเอง ลดต้นทุน production" data-en="Produced photography and video content in-house for ads and social media, reducing production costs"></span></li>
         </ul>
       </div>
     </div>
@@ -482,12 +494,12 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         <span class="exp-badge" data-th="สัญญา 1 ปี" data-en="Contract · 1yr"></span>
       </div>
       <div class="exp-content">
-        <h3 data-th="ผู้ประสานงานสื่อดิจิทัล" data-en="Digital Media Coordinator"></h3>
+        <h3 data-th="Digital Media Coordinator — Olay Brand" data-en="Digital Media Coordinator — Olay Brand"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="ดูแลการดำเนินงานสื่อดิจิทัลทั้งหมดสำหรับแบรนด์ Olay" data-en="Oversaw all digital media operations for the Olay brand"></span></li>
-          <li><span data-th="บริหาร B2C channels: Facebook, Instagram, YouTube, Display Ads ตาม global guidelines ของ P&G" data-en="Managed B2C channels: Facebook, Instagram, YouTube, Display Ads aligned with global P&G guidelines"></span></li>
-          <li><span data-th="รักษาความลับของ brand ambassador และ material แคมเปญ" data-en="Maintained strict confidentiality for brand ambassadors and sensitive campaign materials"></span></li>
-          <li><span data-th="พัฒนาและดำเนินกลยุทธ์ influencer marketing เพื่อเพิ่ม consumer engagement" data-en="Developed and executed social media & influencer marketing strategies for consumer engagement"></span></li>
+          <li><span data-th="บริหาร digital media ทั้งหมดสำหรับแบรนด์ Olay ระดับ Global — วางแผน, ผลิต content, และติดตาม performance" data-en="Managed all digital media for Olay globally — campaign planning, content production and performance monitoring"></span></li>
+          <li><span data-th="ดูแล B2C channels ครบ: Facebook, Instagram, YouTube, Display Ads ให้สอดคล้องกับ P&G Global Brand Guidelines" data-en="Oversaw full B2C channel mix: Facebook, Instagram, YouTube and Display Ads in alignment with P&G Global Brand Guidelines"></span></li>
+          <li><span data-th="ออกแบบและดำเนินกลยุทธ์ influencer marketing เพื่อเพิ่ม consumer trust และ product awareness ในตลาดไทย" data-en="Designed and executed influencer marketing strategy to boost consumer trust and product awareness in Thailand"></span></li>
+          <li><span data-th="ประสบการณ์ทำงานกับมาตรฐาน Global FMCG Brand — เสริมทักษะ strategic thinking และ brand discipline" data-en="Gained Global FMCG brand experience — enhanced strategic thinking and brand discipline at international standards"></span></li>
         </ul>
       </div>
     </div>
@@ -498,13 +510,12 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         <div class="exp-co">Oishi Group<br>Public Co., Ltd.</div>
       </div>
       <div class="exp-content">
-        <h3 data-th="นักการตลาดดิจิทัลและสื่อ" data-en="Digital Marketing & Media Services"></h3>
+        <h3 data-th="Digital Marketing & Creative Media Specialist" data-en="Digital Marketing & Creative Media Specialist"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="ผลิตสื่อการตลาด — ถ่ายภาพ, ถ่ายวิดีโอ, ตัดต่อวิดีโอ" data-en="Produced marketing media — photography, videography and video editing"></span></li>
-          <li><span data-th="สร้างและจัดการ social media สำหรับแบรนด์ OISHI และ EST" data-en="Managed and created social media accounts for OISHI and EST brands"></span></li>
-          <li><span data-th="ผลิตสื่อการศึกษาสำหรับ cooking tutorial ภายใต้ OISHI FOOD group" data-en="Created educational media for cooking tutorials under OISHI FOOD group"></span></li>
-          <li><span data-th="เพิ่ม followers และ CTR บนแพลตฟอร์ม social media ให้ตามเป้าหมาย" data-en="Increased followers and click-through rates on social platforms to meet campaign goals"></span></li>
-          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO สำหรับ oishifood.com" data-en="Executed SMM strategies and SEO for oishifood.com"></span></li>
+          <li><span data-th="ดูแล social media accounts สำหรับแบรนด์ OISHI และ EST ครอบคลุมการวางแผน content และ community management" data-en="Managed social media accounts for OISHI and EST brands including content planning and community management"></span></li>
+          <li><span data-th="ผลิตสื่อการศึกษา cooking tutorial series ภายใต้ OISHI FOOD group — สร้าง engagement และ brand affinity" data-en="Produced educational cooking tutorial series under OISHI FOOD group — building engagement and brand affinity"></span></li>
+          <li><span data-th="เพิ่ม followers และ click-through rate บน social media ให้ตามเป้าหมายแคมเปญ ด้วย content ที่ผลิตเองทั้งหมด" data-en="Grew followers and CTR to campaign targets through fully self-produced photo, video and editorial content"></span></li>
+          <li><span data-th="ดำเนินกลยุทธ์ SEO สำหรับ oishifood.com เพิ่ม organic traffic อย่างต่อเนื่อง" data-en="Implemented SEO strategy for oishifood.com, achieving consistent organic traffic growth"></span></li>
         </ul>
       </div>
     </div>
@@ -513,7 +524,50 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 
   <hr class="section-divider"/>
 
-  <!-- SKILLS -->
+  <!-- INDUSTRIES SERVED -->
+  <div class="sec-label" data-th="อุตสาหกรรมที่เคยทำงาน" data-en="Industries Served"></div>
+  <h2 class="sec-title" data-th="ประสบการณ์อุตสาหกรรม" data-en="INDUSTRY EXPERIENCE"></h2>
+  <div class="industry-grid">
+
+    <div class="ind-card">
+      <div class="ind-icon">🛒</div>
+      <div class="ind-name" data-th="Retail & E-commerce" data-en="Retail & E-commerce"></div>
+      <div class="ind-brands">Thai Watsadu · BnB Home</div>
+    </div>
+
+    <div class="ind-card">
+      <div class="ind-icon">🍱</div>
+      <div class="ind-name" data-th="Food & Beverage" data-en="Food & Beverage"></div>
+      <div class="ind-brands">Oishi · EST · Olino · OJI Omakase</div>
+    </div>
+
+    <div class="ind-card">
+      <div class="ind-icon">🧴</div>
+      <div class="ind-name" data-th="Beauty & FMCG" data-en="Beauty & FMCG"></div>
+      <div class="ind-brands">Olay — Procter & Gamble</div>
+    </div>
+
+    <div class="ind-card">
+      <div class="ind-icon">☀️</div>
+      <div class="ind-name" data-th="พลังงานทดแทน" data-en="Renewable Energy"></div>
+      <div class="ind-brands">Heliotech · Longi Solar</div>
+    </div>
+
+    <div class="ind-card">
+      <div class="ind-icon">🏥</div>
+      <div class="ind-name" data-th="อุปกรณ์การแพทย์" data-en="Medical Equipment"></div>
+      <div class="ind-brands">Medica Co., Ltd.</div>
+    </div>
+
+    <div class="ind-card">
+      <div class="ind-icon">🥐</div>
+      <div class="ind-name" data-th="แฟรนไชส์ & F&B" data-en="Franchise & F&B"></div>
+      <div class="ind-brands">Olinoland Tea & Crepe</div>
+    </div>
+
+  </div>
+
+  <hr class="section-divider"/>
   <div class="skills-bg" id="skillsBg">
     <div class="sec-label" data-th="ความสามารถ" data-en="Capabilities"></div>
     <h2 class="sec-title" data-th="ทักษะ" data-en="SKILLS"></h2>
