@@ -237,25 +237,46 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 .add-card span{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 
 /* ══════════════════════════════
-   PAGE: VIDEOS (Google Drive)
+   PAGE: VIDEOS (YouTube)
 ══════════════════════════════ */
 #page-videos{background:white}
 .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.vcard{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--paper);transition:border-color .2s,transform .25s}
-.vcard:hover{border-color:var(--ink);transform:translateY(-3px)}
+.vcard{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--paper);transition:border-color .25s,transform .25s,box-shadow .25s}
+.vcard:hover{border-color:var(--ink);transform:translateY(-4px);box-shadow:0 12px 28px rgba(13,13,13,.1)}
 .vthumb{position:relative;aspect-ratio:16/9;background:var(--ink);overflow:hidden}
 .vthumb iframe{width:100%;height:100%;border:none;display:block}
-/* Google Drive embed note */
-.gdrive-note{position:absolute;bottom:0;left:0;right:0;padding:7px 12px;background:rgba(13,13,13,.55);font-family:var(--mono);font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px}
-.vinfo{padding:16px 20px}
+/* play overlay — ซ่อนตอน hover เพื่อ interact กับ iframe */
+.vplay-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(13,13,13,.3);
+  cursor:pointer;transition:background .2s;
+  z-index:2;
+}
+.vplay-overlay:hover{background:rgba(13,13,13,.1)}
+.vplay-overlay.hidden{display:none}
+.vplay-btn{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(233,64,64,.5);
+  transition:transform .2s;
+}
+.vplay-overlay:hover .vplay-btn{transform:scale(1.1)}
+.vnum{
+  position:absolute;top:10px;left:10px;z-index:3;
+  background:rgba(13,13,13,.7);color:white;
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9px;font-weight:700;
+}
+.vinfo{padding:14px 16px 16px}
 .vtag{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
-.vinfo h4{font-family:var(--display);font-size:20px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;line-height:1.2}
-.vinfo p{font-size:12px;color:var(--muted);line-height:1.65}
-.vadd{border:2px dashed var(--border);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:44px;cursor:pointer;background:white;min-height:200px;transition:all .2s}
+.vinfo h4{font-family:var(--display);font-size:18px;letter-spacing:1px;color:var(--ink);margin-bottom:3px;line-height:1.2}
+.vinfo p{font-size:11px;color:var(--muted);line-height:1.6}
+.vadd{border:2px dashed var(--border);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:44px;cursor:pointer;background:white;min-height:200px;transition:all .2s}
 .vadd:hover{border-color:var(--red);background:rgba(233,64,64,.02)}
 .vadd span{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.9}
-.gdrive-help{margin-top:36px;padding:20px 24px;border:1px solid var(--border);border-radius:2px;background:var(--cream);font-size:12px;color:var(--muted);line-height:1.8}
-.gdrive-help code{font-family:var(--mono);font-size:11px;background:rgba(13,13,13,.07);padding:2px 6px;border-radius:3px;color:var(--ink)}
 
 /* ══════════════════════════════
    PAGE: CERTIFICATES
@@ -771,141 +792,146 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 <div class="page" id="page-videos">
   <div class="sec-label" data-th="งานวิดีโอ" data-en="Motion Work"></div>
   <h2 class="sec-title" data-th="วิดีโอ" data-en="VIDEOS"></h2>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:28px;margin-top:-20px"
+     data-th="กดปุ่ม ▶ เพื่อเล่นวิดีโอได้เลย — รองรับ YouTube Unlisted"
+     data-en="Click ▶ to play — supports YouTube Unlisted videos"></p>
 
   <div class="vgrid">
+    <!-- วิธีใส่ YouTube: แทน VIDEO_ID_01-09 ด้วย ID จาก YouTube link ของคุณ -->
+    <!-- youtube.com/watch?v=ABC123 → ใส่ ABC123 ใน data-yt และ embed URL -->
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1-_aeFDjHwSsvuG74PePzgSA7D4u1UWxK/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">1</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_01?autoplay=1&rel=0" title="Video 01" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 01</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/17M0BWE73xT1qQyUEStuA4-ZyU20oG8Gq/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">2</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_02?autoplay=1&rel=0" title="Video 02" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 02</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1ntSxl7myFPTi4bS1HkSUjpJK5onYRS7o/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">3</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_03?autoplay=1&rel=0" title="Video 03" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 03</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1e8bpjg6K4eXfYPNoUrUnJQKYTNLAlR9j/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">4</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_04?autoplay=1&rel=0" title="Video 04" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 04</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/16OfD6Qho3NBrsd824KG8rRt1qvF-tGNd/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">5</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_05?autoplay=1&rel=0" title="Video 05" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 05</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1jbNnaB2n7o3uhT2Qacs26SS8q02k2eeR/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">6</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_06?autoplay=1&rel=0" title="Video 06" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 06</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1FlGlYN1nm1dcA9gRJ_fJ-K1B3079y5lu/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.912L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">7</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_07?autoplay=1&rel=0" title="Video 07" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 07</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1dLiyJO0w9MXrJ0lG0sQnoZnx-qiH5CkS/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">8</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_08?autoplay=1&rel=0" title="Video 08" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 08</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
     <div class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/16nFwtD_w1I-LI37Yx_9NwMSEH__dMjOU/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
-        <div class="gdrive-note">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
-          Google Drive
+        <div class="vnum">9</div>
+        <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_09?autoplay=1&rel=0" title="Video 09" allowfullscreen loading="lazy"></iframe>
+        <div class="vplay-overlay" onclick="playVid(this)">
+          <div class="vplay-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 09</h4>
-        <p><span data-th="ผลงานวิดีโอ" data-en="Video production work"></span></p>
+        <p data-th="ใส่ชื่อวิดีโอได้เลย" data-en="Add video title here"></p>
       </div>
     </div>
 
@@ -1248,6 +1274,24 @@ backdrop.addEventListener('touchend', function(e) {
   // เช็คตอน scroll
   pageHome.addEventListener('scroll', checkSkillsVisible, { passive: true });
 })();
+
+// ── VIDEO PLAY ──
+function playVid(overlay) {
+  const iframe = overlay.previousElementSibling;
+  if (iframe && iframe.dataset.src) {
+    iframe.src = iframe.dataset.src;
+  }
+  overlay.classList.add('hidden');
+}
+
+// ── VIDEO PLAY ──
+function playVid(overlay) {
+  const iframe = overlay.previousElementSibling;
+  if (iframe && iframe.dataset.src) {
+    iframe.src = iframe.dataset.src;
+  }
+  overlay.classList.add('hidden');
+}
 
 // ── PHOTO FILTER ──
 document.querySelectorAll('.fbtn').forEach(btn => {
