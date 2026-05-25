@@ -379,6 +379,31 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   padding:3px 10px;background:var(--cream);
   border-radius:100px;font-size:10px;color:var(--muted);
 }
+
+/* DISC PERSONALITY */
+.disc-wrap{background:var(--ink);border-radius:8px;padding:40px 44px;position:relative;overflow:hidden}
+.disc-wrap::before{content:'DISC';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:120px;color:rgba(255,255,255,.03);letter-spacing:8px;pointer-events:none;line-height:1}
+.disc-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:28px}
+.disc-badge-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:8px}
+.disc-type-name{font-family:var(--display);font-size:44px;letter-spacing:2px;color:var(--red);line-height:1;margin-bottom:4px}
+.disc-type-th{font-size:17px;font-weight:600;color:rgba(245,240,232,.7);margin-bottom:12px}
+.disc-desc{font-size:12px;color:rgba(245,240,232,.55);line-height:1.8}
+.disc-bars{display:flex;flex-direction:column;gap:16px;justify-content:center}
+.disc-bar-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.disc-bar-name{font-size:12px;font-weight:500;color:rgba(245,240,232,.8)}
+.disc-bar-score{font-family:var(--display);font-size:24px;line-height:1}
+.disc-track{height:7px;background:rgba(245,240,232,.1);border-radius:100px;overflow:hidden}
+.disc-fill{height:100%;border-radius:100px;width:0%;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.disc-source{margin-top:20px;padding-top:14px;border-top:1px solid rgba(245,240,232,.08);display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9px;color:rgba(245,240,232,.28);letter-spacing:1px;flex-wrap:wrap}
+.disc-source a{color:rgba(245,240,232,.45);text-decoration:none;transition:color .2s}
+.disc-source a:hover{color:var(--gold)}
+
+@media(max-width:960px){
+  .disc-top{grid-template-columns:1fr}
+  .disc-wrap{padding:24px 18px}
+  .disc-type-name{font-size:30px}
+}
+
 @media(max-width:960px){
   .topbar{display:flex}
   .sidenav{transform:translateX(-100%);padding-top:calc(var(--topbar-h) + 16px)}
@@ -475,8 +500,8 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
     </div>
     <h1 class="hero-name">Kerkrit<em>Koch<br>druang</em></h1>
     <p class="hero-bio">
-      <span data-th="ผู้นำทีม Digital Marketing ที่มีประสบการณ์กว่า <strong>11 ปี</strong> ในการขับเคลื่อนกลยุทธ์การตลาดครบวงจร ตั้งแต่ Creative Production, Google Ads, Facebook Ads ไปจนถึงการบริหารหน้าร้านและหลังบ้านบน Shopee, Lazada และ TikTok Shop ครอบคลุมกว่า 6 อุตสาหกรรม"
-             data-en="Dynamic Digital Marketing Team Leader with <strong>11+ years</strong> of experience driving impactful strategies and creating multimedia content across 6 industries. Expert in end-to-end marketplace management on Shopee, Lazada and TikTok Shop — storefront, content, back-end operations, campaigns and order management — alongside Google Ads, Facebook Ads, SEO and full-cycle creative production."></span>
+      <span data-th="ผู้นำทีม Digital Marketing ที่มีประสบการณ์กว่า <strong>11 ปี</strong> ในการขับเคลื่อนกลยุทธ์การตลาดที่มีประสิทธิภาพ สร้าง content มัลติมีเดียที่ดึงดูดใจ และเพิ่มการรับรู้แบรนด์บนทุกแพลตฟอร์มหลัก เชี่ยวชาญในการบริหารจัดการสื่อดิจิทัล การดูแลหน้าร้านและหลังบ้านบน Shopee, Lazada และ TikTok Shop รวมถึงการวิเคราะห์ข้อมูลเพื่อเพิ่มประสิทธิภาพ SEO และใช้ social media ในการโปรโมทเชิงกลยุทธ์ ทักษะการสื่อสารที่แข็งแกร่งช่วยให้ประสานงานกับ influencer และพาร์ทเนอร์ได้อย่างมีประสิทธิภาพ"
+             data-en="Dynamic Digital Marketing Team Leader with <strong>11+ years</strong> of experience driving impactful marketing strategies and creating engaging multimedia content across 6 industries. Expertise in managing digital media operations, executing successful campaigns that enhance brand visibility and consumer engagement. Proficient in utilizing analytics to optimize online presence, improve SEO, and leverage social media for targeted promotions. Expert in end-to-end marketplace management on Shopee, Lazada and TikTok Shop — storefront, content, back-end operations, campaigns and order management. Strong communication skills facilitate collaboration with influencers and partners, ensuring alignment with brand objectives and campaign goals."></span>
     </p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-n">11<sup>+</sup></div><div class="stat-l" data-th="ปีประสบการณ์" data-en="Years Exp."></div></div>
@@ -492,7 +517,7 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92Z"/></svg>
         063-889-9953
       </a>
-      <span class="pill">📍 Samut Prakan</span>
+      <span class="pill">📍 86/182 Modi Villa Bangna, Samut Prakan</span>
     </div>
   </div>
 
@@ -512,11 +537,15 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
       <div class="exp-content">
         <h3 data-th="Digital Marketing Team Leader" data-en="Digital Marketing Team Leader"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="บริหารหน้าร้านและ content ครบวงจรบน Shopee, Lazada และ TikTok Shop รวมถึงดูแลหลังบ้าน — จัดการ order, stock, campaign และ promotion" data-en="Managed full storefront, content and back-end operations on Shopee, Lazada and TikTok Shop — including orders, stock, campaigns and promotions"></span></li>
-          <li><span data-th="นำทีมวาง omni-channel strategy สำหรับ Thai Watsadu & BnB Home ครอบคลุมเว็บ, แอป, Facebook, Instagram และ LINE" data-en="Led omni-channel strategy for Thai Watsadu & BnB Home across web, app, Facebook, Instagram and LINE"></span></li>
-          <li><span data-th="ขยาย TikTok presence ให้กับแบรนด์ Gowow ด้วย short-form video strategy (2022)" data-en="Grew Gowow's TikTok presence through short-form video strategy (2022)"></span></li>
-          <li><span data-th="บริหาร CMS, Google Ads และ SEO เพื่อเพิ่ม visibility และ conversion บน e-commerce" data-en="Managed CMS, Google Ads & SEO to increase e-commerce visibility and conversions"></span></li>
-          <li><span data-th="ประสานงาน influencer, supplier และ creative agency เพื่อผลิตแคมเปญที่ตรงกลุ่มเป้าหมาย" data-en="Coordinated influencers, suppliers and agencies for targeted brand campaigns"></span></li>
+          <li><span data-th="บริหารหน้าร้านและ content ครบวงจรบน Shopee, Lazada และ TikTok Shop — จัดการ order, stock, campaign และ promotion" data-en="Managed full storefront, content and back-end operations on Shopee, Lazada and TikTok Shop — including orders, stock, campaigns and promotions"></span></li>
+          <!-- 2021 -->
+          <li><span data-th="[2021] ผลิตและจัดการ content ออนไลน์บนทุกช่องทาง ได้แก่ www.bnbhome.com, Facebook, Instagram และ LINE" data-en="[2021] Produced and managed online media content across multiple channels including www.bnbhome.com, Facebook, Instagram and LINE"></span></li>
+          <li><span data-th="[2021] ผลิต video content และประสานงานกับ influencer และ supplier เพื่อสนับสนุนแคมเปญแบรนด์" data-en="[2021] Created video content and collaborated with influencers and suppliers to support brand campaigns"></span></li>
+          <!-- 2022 -->
+          <li><span data-th="[2022] ขยายงานสู่ creative video production สำหรับ Gowow บน TikTok — โปรโมทสินค้าและแคมเปญผ่าน short-form content" data-en="[2022] Expanded responsibilities to include creative video production for Gowow on TikTok — promoted products and campaigns through engaging short-form content"></span></li>
+          <!-- 2023 -->
+          <li><span data-th="[2023] นำ omni-channel media สำหรับ Thai Watsadu และ BnB Home เว็บไซต์และแอปมือถือ — บริหาร CMS, landing pages, บทความ และ content โปรโมชัน" data-en="[2023] Led omni-channel media production for Thai Watsadu and BnB Home websites and mobile apps — managed CMS for landing pages, articles and promotional content"></span></li>
+          <li><span data-th="[2023] ดำเนินแคมเปญการตลาดผ่าน Google Ads และ SEO เพื่อเพิ่ม product visibility — ดูแล e-commerce content ให้สอดคล้องกับ branding objectives" data-en="[2023] Executed marketing campaigns via Google Ads and improved SEO strategies — oversaw all e-commerce media content ensuring alignment with promotional and branding objectives"></span></li>
         </ul>
       </div>
     </div>
@@ -529,10 +558,11 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
       <div class="exp-content">
         <h3 data-th="Digital Marketing & Content Creator" data-en="Digital Marketing & Content Creator"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="สร้าง content โฆษณา — ถ่ายภาพ, ถ่ายวิดีโอ และตัดต่อ" data-en="Created advertising content — photography, videography and video editing"></span></li>
-          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO เพื่อเพิ่ม online visibility" data-en="Executed SMM strategies and SEO to increase online visibility"></span></li>
-          <li><span data-th="ใช้ Facebook Ads & Google Ads เพื่อหาลูกค้า retail และ franchise" data-en="Utilized Facebook Ads & Google Ads to acquire retail and franchise customers"></span></li>
-          <li><span data-th="ประสานงานแคมเปญกับ LINE MAN, Grab, Foodpanda, GET" data-en="Coordinated campaigns with LINE MAN, Grab, Foodpanda and GET"></span></li>
+          <li><span data-th="จัดการและผลิตสื่อการตลาดสำหรับทั้งช่องทาง online และ offline" data-en="Managed and produced marketing materials for both online and offline channels"></span></li>
+          <li><span data-th="สร้าง content โฆษณา — ถ่ายภาพ, ถ่ายวิดีโอ และตัดต่อ" data-en="Created advertising content and designed media — photography, videography and video editing"></span></li>
+          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO เพื่อเพิ่ม online visibility" data-en="Executed social media marketing strategies and implemented SEO to increase online visibility"></span></li>
+          <li><span data-th="ใช้ Facebook Ads & Google Ads เพื่อหาลูกค้า retail และ franchise" data-en="Utilized Facebook Ads and Google Ads to acquire both retail customers and franchise prospects"></span></li>
+          <li><span data-th="ประสานงานแคมเปญกับพาร์ทเนอร์ LINE MAN, Grab, Foodpanda และ GET" data-en="Coordinated and managed promotional campaigns through strategic partners — LINE MAN, Grab, Foodpanda and GET"></span></li>
         </ul>
       </div>
     </div>
@@ -562,11 +592,12 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
       <div class="exp-content">
         <h3 data-th="Digital Marketing & Media Specialist" data-en="Digital Marketing & Media Specialist"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="ผลิตสื่อการตลาด — ถ่ายภาพ, ถ่ายวิดีโอ, ตัดต่อวิดีโอ" data-en="Produced marketing media — photography, videography and video editing"></span></li>
-          <li><span data-th="สร้างและจัดการ social media สำหรับแบรนด์ OISHI และ EST" data-en="Managed and created social media accounts for OISHI and EST brands"></span></li>
-          <li><span data-th="ผลิตสื่อการศึกษาสำหรับ cooking tutorial ภายใต้ OISHI FOOD group" data-en="Created educational media for cooking tutorials under OISHI FOOD group"></span></li>
-          <li><span data-th="เพิ่ม followers และ CTR บนแพลตฟอร์ม social media ให้ตามเป้าหมาย" data-en="Increased followers and click-through rates on social platforms to meet campaign goals"></span></li>
-          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO สำหรับ oishifood.com" data-en="Executed SMM strategies and SEO for oishifood.com"></span></li>
+          <li><span data-th="ผลิตสื่อการตลาด — ถ่ายภาพ, ถ่ายวิดีโอ และตัดต่อวิดีโอ" data-en="Produced marketing media for the organization — photography, videography and video editing"></span></li>
+          <li><span data-th="สร้างและจัดการ social media accounts สำหรับ daily content posting" data-en="Managed and created social media accounts for daily content posting"></span></li>
+          <li><span data-th="ดูแล fan pages สำหรับแบรนด์ OISHI และ EST" data-en="Handled fan pages for brands including OISHI and EST"></span></li>
+          <li><span data-th="ผลิตสื่อการศึกษา cooking tutorial ภายใต้ OISHI FOOD group" data-en="Created educational media for cooking tutorials under OISHI FOOD group"></span></li>
+          <li><span data-th="เพิ่ม followers และ click-through rates บน social media ให้ตามเป้าหมายแคมเปญ" data-en="Increased followers and click-through rates on social media platforms to meet campaign goals"></span></li>
+          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO สำหรับเว็บไซต์ www.oishifood.com" data-en="Executed social media marketing strategies and performed SEO for www.oishifood.com"></span></li>
         </ul>
       </div>
     </div>
@@ -592,7 +623,7 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         <div class="skill-group" style="margin-top:32px">
           <h4 data-th="👥 ภาวะผู้นำและสำนักงาน" data-en="👥 Leadership & Office"></h4>
           <div class="skill-row"><span class="skill-name" data-th="ภาวะผู้นำ" data-en="Leadership"></span><div class="skill-track"><div class="skill-fill" data-w="88"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
-          <div class="skill-row"><span class="skill-name" data-th="การสื่อสาร" data-en="Communication"></span><div class="skill-track"><div class="skill-fill" data-w="88"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
+          <div class="skill-row"><span class="skill-name" data-th="การสื่อสาร" data-en="Good Communication"></span><div class="skill-track"><div class="skill-fill" data-w="88"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
           <div class="skill-row"><span class="skill-name">MS Word</span><div class="skill-track"><div class="skill-fill" data-w="96"></div></div><span class="skill-lv" data-th="เชี่ยวชาญ ★" data-en="Expert ★"></span></div>
           <div class="skill-row"><span class="skill-name">PowerPoint</span><div class="skill-track"><div class="skill-fill" data-w="80"></div></div><span class="skill-lv" data-th="ชำนาญ" data-en="Experienced"></span></div>
           <div class="skill-row"><span class="skill-name">Excel</span><div class="skill-track"><div class="skill-fill" data-w="65"></div></div><span class="skill-lv" data-th="ดี" data-en="Skillful"></span></div>
@@ -623,6 +654,83 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <hr class="section-divider"/>
+
+  <!-- DISC PERSONALITY -->
+  <div class="sec-label" data-th="บุคลิกภาพ" data-en="Personality Profile"></div>
+  <h2 class="sec-title" data-th="DISC Assessment" data-en="DISC Assessment"></h2>
+
+  <div class="disc-wrap" id="discSection">
+    <div class="disc-top">
+
+      <!-- LEFT: Main type -->
+      <div>
+        <div class="disc-badge-label" data-th="บุคลิกภาพหลักของคุณคือ" data-en="Your dominant personality type"></div>
+        <div class="disc-type-name">Dominance</div>
+        <div class="disc-type-th" data-th="ธาตุไฟ — นักปกครอง" data-en="Fire Element — The Governor"></div>
+        <p class="disc-desc" data-th="มุ่งมั่น กล้าหาญ และชอบการแข่งขัน ชอบเป็นผู้นำและควบคุมสถานการณ์ มีเป้าหมายที่ชัดเจน และพร้อมที่จะเผชิญหน้ากับความท้าทายโดยตรง" data-en="Results-driven, bold and competitive. Thrives on leadership, control and direct challenges. Sets clear goals and confronts obstacles head-on."></p>
+      </div>
+
+      <!-- RIGHT: Score bars -->
+      <div class="disc-bars" id="discBars">
+
+        <div>
+          <div class="disc-bar-header">
+            <span class="disc-bar-name">D — Dominance <span style="font-size:10px;color:rgba(245,240,232,.4)" data-th="นักปกครอง" data-en="Governor"></span></span>
+            <span class="disc-bar-score" style="color:#e94040">56</span>
+          </div>
+          <div class="disc-track">
+            <div class="disc-fill" data-w="56" style="background:#e94040"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="disc-bar-header">
+            <span class="disc-bar-name">I — Influence <span style="font-size:10px;color:rgba(245,240,232,.4)" data-th="นักสื่อสาร" data-en="Communicator"></span></span>
+            <span class="disc-bar-score" style="color:#f5a623">54</span>
+          </div>
+          <div class="disc-track">
+            <div class="disc-fill" data-w="54" style="background:#f5a623"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="disc-bar-header">
+            <span class="disc-bar-name">S — Steadiness <span style="font-size:10px;color:rgba(245,240,232,.4)" data-th="นักปฏิบัติ" data-en="Practitioner"></span></span>
+            <span class="disc-bar-score" style="color:#4ecdc4">45</span>
+          </div>
+          <div class="disc-track">
+            <div class="disc-fill" data-w="45" style="background:#4ecdc4"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="disc-bar-header">
+            <span class="disc-bar-name">C — Compliance <span style="font-size:10px;color:rgba(245,240,232,.4)" data-th="นักวิเคราะห์" data-en="Analyst"></span></span>
+            <span class="disc-bar-score" style="color:#a78bfa">45</span>
+          </div>
+          <div class="disc-track">
+            <div class="disc-fill" data-w="45" style="background:#a78bfa"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Source -->
+    <div class="disc-source">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span data-th="แหล่งอ้างอิง: ผลการประเมิน DISC Personality Assessment" data-en="Source: DISC Personality Assessment Result"></span>
+      &nbsp;·&nbsp;
+      <a href="https://www.discprofile.com" target="_blank" rel="noopener">discprofile.com</a>
+      &nbsp;·&nbsp;
+      <span data-th="ประเมินผ่าน" data-en="Assessed via"></span>
+      <a href="https://www.crystalknows.com" target="_blank" rel="noopener">Crystal Knows DISC</a>
     </div>
   </div>
 
@@ -1271,25 +1379,42 @@ backdrop.addEventListener('touchend', function(e) {
 
   // เช็คทันทีตอนเปิดหน้า (กรณี skills อยู่ viewport แล้ว)
   setTimeout(checkSkillsVisible, 500);
-  // เช็คตอน scroll
   pageHome.addEventListener('scroll', checkSkillsVisible, { passive: true });
+})();
+
+// ── DISC BARS ANIMATION ──
+(function(){
+  const discSection = document.getElementById('discSection');
+  if (!discSection) return;
+  const fills = discSection.querySelectorAll('.disc-fill');
+  fills.forEach(f => { f.style.width = '0%'; f.style.transition = 'none'; });
+  let discFired = false;
+  function fireDisc() {
+    if (discFired) return; discFired = true;
+    fills.forEach((f, i) => {
+      const target = f.getAttribute('data-w') || '0';
+      setTimeout(() => {
+        f.style.transition = 'width 1.2s cubic-bezier(.16,1,.3,1)';
+        f.style.width = target + '%';
+      }, i * 120 + 150);
+    });
+  }
+  const pageHome = document.getElementById('page-home');
+  function checkDisc() {
+    const rect = discSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      fireDisc();
+      pageHome.removeEventListener('scroll', checkDisc);
+    }
+  }
+  setTimeout(checkDisc, 600);
+  pageHome.addEventListener('scroll', checkDisc, { passive: true });
 })();
 
 // ── VIDEO PLAY ──
 function playVid(overlay) {
   const iframe = overlay.previousElementSibling;
-  if (iframe && iframe.dataset.src) {
-    iframe.src = iframe.dataset.src;
-  }
-  overlay.classList.add('hidden');
-}
-
-// ── VIDEO PLAY ──
-function playVid(overlay) {
-  const iframe = overlay.previousElementSibling;
-  if (iframe && iframe.dataset.src) {
-    iframe.src = iframe.dataset.src;
-  }
+  if (iframe && iframe.dataset.src) { iframe.src = iframe.dataset.src; }
   overlay.classList.add('hidden');
 }
 
