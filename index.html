@@ -380,6 +380,29 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   border-radius:100px;font-size:10px;color:var(--muted);
 }
 
+/* BRAND PORTFOLIO */
+.brand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.brand-card{
+  padding:20px 22px;border:1px solid var(--border);border-radius:6px;
+  background:white;transition:all .25s;position:relative;overflow:hidden;
+}
+.brand-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:3px;border-radius:0;
+}
+.brand-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(13,13,13,.08)}
+.brand-card.food::before{background:#e94040}
+.brand-card.beauty::before{background:#c8a94a}
+.brand-card.beverage::before{background:#4ecdc4}
+.brand-card.restaurant::before{background:#f5a623}
+.brand-cat{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.brand-name{font-family:var(--display);font-size:22px;letter-spacing:1px;color:var(--ink);margin-bottom:6px;line-height:1.1}
+.brand-desc{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:10px}
+.brand-tags{display:flex;flex-wrap:wrap;gap:5px}
+.brand-tag{padding:3px 9px;background:var(--cream);border-radius:100px;font-size:10px;color:var(--muted)}
+
+@media(max-width:960px){.brand-grid{grid-template-columns:1fr}}
+
 /* DISC PERSONALITY */
 .disc-wrap{background:var(--ink);border-radius:8px;padding:40px 44px;position:relative;overflow:hidden}
 .disc-wrap::before{content:'DISC';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:120px;color:rgba(255,255,255,.03);letter-spacing:8px;pointer-events:none;line-height:1}
@@ -558,9 +581,10 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
       <div class="exp-content">
         <h3 data-th="Digital Marketing & Content Creator" data-en="Digital Marketing & Content Creator"></h3>
         <ul class="exp-bullets">
-          <li><span data-th="จัดการและผลิตสื่อการตลาดสำหรับทั้งช่องทาง online และ offline" data-en="Managed and produced marketing materials for both online and offline channels"></span></li>
-          <li><span data-th="สร้าง content โฆษณา — ถ่ายภาพ, ถ่ายวิดีโอ และตัดต่อ" data-en="Created advertising content and designed media — photography, videography and video editing"></span></li>
-          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO เพื่อเพิ่ม online visibility" data-en="Executed social media marketing strategies and implemented SEO to increase online visibility"></span></li>
+          <li><span data-th="จัดการและผลิตสื่อการตลาดสำหรับทั้งช่องทาง online และ offline ครอบคลุมหลายแบรนด์ในเครือ" data-en="Managed and produced marketing materials for both online and offline channels across multiple brands in the group"></span></li>
+          <li><span data-th="ดูแล Facebook Page และ Social Media ให้แบรนด์ Olino Crepe & Tea, So Asean Café & Restaurant, Man Fu Yuan Kitchen และ Daily Wink — ครอบคลุม content creation, copywriting และ graphic design" data-en="Managed Facebook Pages and Social Media for Olino Crepe & Tea, So Asean Café & Restaurant, Man Fu Yuan Kitchen and Daily Wink — covering content creation, copywriting and graphic design"></span></li>
+          <li><span data-th="ถ่ายภาพสินค้าและอาหารสำหรับแบรนด์ต่างๆ — ทั้งภาพ product shot, food styling และ lifestyle photography" data-en="Produced product and food photography across brands — product shots, food styling and lifestyle photography"></span></li>
+          <li><span data-th="ดำเนินกลยุทธ์ SMM และ SEO เพื่อเพิ่ม online visibility และ engagement บนทุกแพลตฟอร์ม" data-en="Executed social media marketing strategies and implemented SEO to increase online visibility and engagement"></span></li>
           <li><span data-th="ใช้ Facebook Ads & Google Ads เพื่อหาลูกค้า retail และ franchise" data-en="Utilized Facebook Ads and Google Ads to acquire both retail customers and franchise prospects"></span></li>
           <li><span data-th="ประสานงานแคมเปญกับพาร์ทเนอร์ LINE MAN, Grab, Foodpanda และ GET" data-en="Coordinated and managed promotional campaigns through strategic partners — LINE MAN, Grab, Foodpanda and GET"></span></li>
         </ul>
@@ -780,121 +804,201 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   <h2 class="sec-title" data-th="ภาพถ่าย" data-en="PHOTOGRAPHY"></h2>
 
   <div class="filter-bar">
-    <button class="fbtn on" data-f="all"       data-th="ทั้งหมด"     data-en="All"></button>
-    <button class="fbtn"    data-f="photo"     data-th="ถ่ายภาพ"     data-en="Photo Shot"></button>
-    <button class="fbtn"    data-f="food"      data-th="อาหาร"       data-en="Food"></button>
-    <button class="fbtn"    data-f="product"   data-th="สินค้า"      data-en="Product"></button>
-    <button class="fbtn"    data-f="lifestyle" data-th="ไลฟ์สไตล์"  data-en="Lifestyle"></button>
+    <button class="fbtn on" data-f="all"       data-th="ทั้งหมด"      data-en="All"></button>
+    <button class="fbtn"    data-f="food"      data-th="🍱 อาหาร"     data-en="🍱 Food"></button>
+    <button class="fbtn"    data-f="product"   data-th="📦 สินค้า"    data-en="📦 Product"></button>
+    <button class="fbtn"    data-f="retouch"   data-th="✨ รีทัช"     data-en="✨ Retouch"></button>
+    <button class="fbtn"    data-f="lifestyle" data-th="🌿 ไลฟ์สไตล์" data-en="🌿 Lifestyle"></button>
   </div>
 
   <div class="masonry" id="masonry">
-    <!-- วิธีเพิ่มรูป: แทน src="..." ด้วย URL รูปของคุณ | data-cat = photo / food / product / lifestyle -->
+
+    <!-- 🍱 FOOD — Man Fu Yuan ติ่มซำ (Image 19 top) -->
     <div class="mitem" data-cat="food">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75" loading="lazy" alt="Food"/>
-      <div class="ov"><span data-th="ถ่ายภาพอาหาร — Oishi" data-en="Food Photography — Oishi"></span></div>
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=75" loading="lazy" alt="Dim Sum"/>
+      <div class="ov"><span data-th="🍱 ติ่มซำ — Man Fu Yuan Kitchen" data-en="🍱 Dim Sum — Man Fu Yuan Kitchen"></span></div>
     </div>
+
+    <!-- ✨ RETOUCH — Man Fu Yuan ขนมกวย (Image 19 bottom) -->
+    <div class="mitem" data-cat="retouch">
+      <img src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=75" loading="lazy" alt="Retouch Dim Sum"/>
+      <div class="ov"><span data-th="✨ ถ่ายและรีทัช — Man Fu Yuan Kitchen" data-en="✨ Photography & Retouch — Man Fu Yuan Kitchen"></span></div>
+    </div>
+
+    <!-- 📦 PRODUCT — MX Cakes ถือพาย (Image 20 top) -->
     <div class="mitem" data-cat="product">
-      <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=75" loading="lazy" alt="Product"/>
-      <div class="ov"><span data-th="ถ่ายภาพสินค้า" data-en="Product Shot"></span></div>
+      <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=75" loading="lazy" alt="MX Pie"/>
+      <div class="ov"><span data-th="📦 ถ่ายสินค้า — MX Cakes & Bakery" data-en="📦 Product Shot — MX Cakes & Bakery"></span></div>
     </div>
-    <div class="mitem" data-cat="lifestyle">
-      <img src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?w=600&q=75" loading="lazy" alt="Lifestyle"/>
-      <div class="ov"><span data-th="ไลฟ์สไตล์" data-en="Lifestyle Content"></span></div>
-    </div>
+
+    <!-- 🍱 FOOD — Oishi Ramen (Image 6) -->
     <div class="mitem" data-cat="food">
-      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75" loading="lazy" alt="Food Styling"/>
-      <div class="ov"><span data-th="จัดสไตล์อาหาร" data-en="Food Styling"></span></div>
+      <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=75" loading="lazy" alt="Ramen"/>
+      <div class="ov"><span data-th="🍱 ถ่ายภาพอาหาร — Oishi Ramen" data-en="🍱 Food Photography — Oishi Ramen"></span></div>
     </div>
-    <div class="mitem" data-cat="photo">
-      <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=75" loading="lazy" alt="Photo"/>
-      <div class="ov"><span data-th="ถ่ายภาพแคมเปญ" data-en="Campaign Shoot"></span></div>
+
+    <!-- 🍱 FOOD — So Asean อาหาร (Image 20 bottom) -->
+    <div class="mitem" data-cat="food">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=75" loading="lazy" alt="So Asean Food"/>
+      <div class="ov"><span data-th="🍱 ถ่ายภาพอาหาร — So Asean Café" data-en="🍱 Food Photography — So Asean Café"></span></div>
     </div>
-    <div class="mitem" data-cat="product">
-      <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=75" loading="lazy" alt="Olay"/>
-      <div class="ov"><span data-th="ถ่ายสินค้า — Olay" data-en="Product — Olay"></span></div>
+
+    <!-- 🍱 FOOD — Hyde & Seek Pasta (Image 7) -->
+    <div class="mitem" data-cat="food">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" loading="lazy" alt="Hyde Pasta"/>
+      <div class="ov"><span data-th="🍱 ถ่ายภาพอาหาร — Hyde & Seek" data-en="🍱 Food Photography — Hyde & Seek"></span></div>
     </div>
+
+    <!-- 🌿 LIFESTYLE — Hyde & Seek Cocktail (Image 8) -->
     <div class="mitem" data-cat="lifestyle">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75" loading="lazy" alt="Lifestyle2"/>
-      <div class="ov"><span data-th="ไลฟ์สไตล์ — Campaign" data-en="Lifestyle — Campaign"></span></div>
+      <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=75" loading="lazy" alt="Cocktail"/>
+      <div class="ov"><span data-th="🌿 ถ่ายภาพเครื่องดื่ม — Hyde & Seek Bar" data-en="🌿 Beverage Shoot — Hyde & Seek Gastro Bar"></span></div>
     </div>
-    <div class="mitem" data-cat="photo">
-      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=75" loading="lazy" alt="Photo2"/>
-      <div class="ov"><span data-th="ถ่ายภาพสร้างสรรค์" data-en="Creative Photography"></span></div>
+
+    <!-- 📦 PRODUCT — Daily Wink แป้ง (Image 5 in Daily Wink PDF) -->
+    <div class="mitem" data-cat="product">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=75" loading="lazy" alt="Daily Wink"/>
+      <div class="ov"><span data-th="📦 ถ่ายสินค้า — Daily Wink Foundation Powder" data-en="📦 Product Shot — Daily Wink Foundation Powder"></span></div>
     </div>
-    <div class="add-card" onclick="alert('เพิ่มรูปโดยเพิ่ม .mitem ใหม่ใน #masonry')">
+
+    <!-- 🍱 FOOD — So Asean Food Styling -->
+    <div class="mitem" data-cat="food">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75" loading="lazy" alt="Food Styling"/>
+      <div class="ov"><span data-th="🍱 จัดสไตล์อาหาร — So Asean Café" data-en="🍱 Food Styling — So Asean Café"></span></div>
+    </div>
+
+    <!-- ✨ RETOUCH — Man Fu Yuan Dim Sum spread -->
+    <div class="mitem" data-cat="retouch">
+      <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=75" loading="lazy" alt="Retouch Spread"/>
+      <div class="ov"><span data-th="✨ ถ่ายและรีทัชชุด — Man Fu Yuan" data-en="✨ Full Shoot & Retouch — Man Fu Yuan Kitchen"></span></div>
+    </div>
+
+    <div class="add-card" onclick="alert('เพิ่มรูปโดยเพิ่ม .mitem ใหม่ใน #masonry\ndata-cat = food / product / retouch / lifestyle')">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
       <span data-th="+ เพิ่มรูปของคุณ" data-en="+ Add your photo"></span>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     PAGE: GRAPHIC DESIGN
-══════════════════════════════════════════ -->
+
 <div class="page" id="page-graphic">
   <div class="sec-label" data-th="งานออกแบบ" data-en="Design Work"></div>
   <h2 class="sec-title" data-th="กราฟิก" data-en="GRAPHIC DESIGN"></h2>
 
   <div class="filter-bar" id="graphicFilterBar">
-    <button class="gbtn on" data-g="all"       data-th="ทั้งหมด"    data-en="All"></button>
-    <button class="gbtn"    data-g="package"   data-th="📦 Package"  data-en="📦 Package"></button>
-    <button class="gbtn"    data-g="social"    data-th="📱 Social"   data-en="📱 Social"></button>
-    <button class="gbtn"    data-g="promotion" data-th="🔥 Promotion" data-en="🔥 Promotion"></button>
-    <button class="gbtn"    data-g="branding"  data-th="🏢 Branding" data-en="🏢 Branding"></button>
+    <button class="gbtn on" data-g="all"       data-th="ทั้งหมด"       data-en="All"></button>
+    <button class="gbtn"    data-g="menu"      data-th="🍜 Menu Design" data-en="🍜 Menu Design"></button>
+    <button class="gbtn"    data-g="social"    data-th="📱 Social Media" data-en="📱 Social Media"></button>
+    <button class="gbtn"    data-g="package"   data-th="📦 Packaging"   data-en="📦 Packaging"></button>
+    <button class="gbtn"    data-g="promotion" data-th="🔥 Promotion"   data-en="🔥 Promotion"></button>
   </div>
 
   <div class="masonry" id="graphicMasonry">
-    <!-- วิธีเพิ่มงาน Graphic:
-         เปลี่ยน src เป็น URL รูปของคุณ
-         data-gcat = package | social | promotion | branding -->
 
-    <!-- 📦 PACKAGE -->
-    <div class="mitem" data-gcat="package">
-      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=75" loading="lazy" alt="Package"/>
-      <div class="ov"><span data-th="📦 Package Design" data-en="📦 Package Design"></span></div>
-    </div>
-    <div class="mitem" data-gcat="package">
-      <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=75" loading="lazy" alt="Package2"/>
-      <div class="ov"><span data-th="📦 Package — Olay" data-en="📦 Package — Olay"></span></div>
+    <!-- 🍜 MENU DESIGN — Ramen Menu (Image 1) -->
+    <div class="mitem" data-gcat="menu">
+      <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=75" loading="lazy" alt="Ramen Menu"/>
+      <div class="ov"><span data-th="🍜 Ramen Menu Design — Oishi" data-en="🍜 Ramen Menu Design — Oishi"></span></div>
     </div>
 
-    <!-- 📱 SOCIAL -->
+    <!-- 📱 SOCIAL — Shabu Shi Campaign Poster (Image 2) -->
     <div class="mitem" data-gcat="social">
-      <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=75" loading="lazy" alt="Social"/>
-      <div class="ov"><span data-th="📱 Social — Instagram" data-en="📱 Social — Instagram"></span></div>
-    </div>
-    <div class="mitem" data-gcat="social">
-      <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=75" loading="lazy" alt="Social2"/>
-      <div class="ov"><span data-th="📱 Social — TikTok Cover" data-en="📱 Social — TikTok Cover"></span></div>
-    </div>
-    <div class="mitem" data-gcat="social">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75" loading="lazy" alt="Social3"/>
-      <div class="ov"><span data-th="📱 Social — Facebook" data-en="📱 Social — Facebook"></span></div>
+      <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=75" loading="lazy" alt="Shabu Campaign"/>
+      <div class="ov"><span data-th="📱 Campaign Poster — Shabu Shi by OISHI" data-en="📱 Campaign Poster — Shabu Shi by OISHI"></span></div>
     </div>
 
-    <!-- 🔥 PROMOTION -->
+    <!-- 📱 SOCIAL — Shabu Shi Brand (Image 3) -->
+    <div class="mitem" data-gcat="social">
+      <img src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=75" loading="lazy" alt="Shabu Brand"/>
+      <div class="ov"><span data-th="📱 Brand Poster — Shabu Shi Terminal 21" data-en="📱 Brand Poster — Shabu Shi Terminal 21"></span></div>
+    </div>
+
+    <!-- 🍜 MENU — Shabu Shi Menu Board (Image 4) -->
+    <div class="mitem" data-gcat="menu">
+      <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=75" loading="lazy" alt="Shabu Menu"/>
+      <div class="ov"><span data-th="🍜 Menu Board — Shabu Shi Buffet" data-en="🍜 Menu Board — Shabu Shi Buffet"></span></div>
+    </div>
+
+    <!-- 🍜 MENU — Shabu Soup Menu (Image 5) -->
+    <div class="mitem" data-gcat="menu">
+      <img src="https://images.unsplash.com/photo-1574484284002-952d92a03a05?w=600&q=75" loading="lazy" alt="Soup Menu"/>
+      <div class="ov"><span data-th="🍜 Soup Selection — Shabu Shi" data-en="🍜 Soup Selection — Shabu Shi"></span></div>
+    </div>
+
+    <!-- 📱 SOCIAL — Hyde & Seek Lunch (Image 7) -->
+    <div class="mitem" data-gcat="social">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" loading="lazy" alt="Hyde Seek"/>
+      <div class="ov"><span data-th="📱 Social Content — Hyde & Seek Gastro Bar" data-en="📱 Social Content — Hyde & Seek Gastro Bar"></span></div>
+    </div>
+
+    <!-- 📱 SOCIAL — Hyde & Seek Cocktail (Image 8) -->
+    <div class="mitem" data-gcat="social">
+      <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=75" loading="lazy" alt="Hyde Cocktail"/>
+      <div class="ov"><span data-th="📱 Social Content — Hyde & Seek Bar" data-en="📱 Social Content — Hyde & Seek Bar"></span></div>
+    </div>
+
+    <!-- 🔥 PROMOTION — MX Cakes AIS (Image 10) -->
     <div class="mitem" data-gcat="promotion">
-      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=75" loading="lazy" alt="Promo"/>
-      <div class="ov"><span data-th="🔥 Promotion — Seasonal Sale" data-en="🔥 Promotion — Seasonal Sale"></span></div>
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" loading="lazy" alt="MX AIS"/>
+      <div class="ov"><span data-th="🔥 Promotion — MX Cakes × AIS 1 ฟรี 1" data-en="🔥 Promotion — MX Cakes × AIS Buy 1 Get 1"></span></div>
     </div>
+
+    <!-- 🔥 PROMOTION — MX Strawberry Festival (Image 11) -->
     <div class="mitem" data-gcat="promotion">
-      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=75" loading="lazy" alt="Promo2"/>
-      <div class="ov"><span data-th="🔥 Promotion — BnB Home" data-en="🔥 Promotion — BnB Home"></span></div>
+      <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=75" loading="lazy" alt="Strawberry Festival"/>
+      <div class="ov"><span data-th="🔥 Tent Card A3 — MX Strawberry Festival" data-en="🔥 Tent Card A3 — MX Strawberry Festival"></span></div>
     </div>
 
-    <!-- 🏢 BRANDING -->
-    <div class="mitem" data-gcat="branding">
-      <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=75" loading="lazy" alt="Brand"/>
-      <div class="ov"><span data-th="🏢 Brand Identity" data-en="🏢 Brand Identity"></span></div>
+    <!-- 🍜 MENU — MX HK Tart (Image 12) -->
+    <div class="mitem" data-gcat="menu">
+      <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=75" loading="lazy" alt="HK Tart"/>
+      <div class="ov"><span data-th="🍜 Product Poster — MX Cakes HK Style Tart" data-en="🍜 Product Poster — MX Cakes HK Style Tart"></span></div>
     </div>
 
-    <!-- + เพิ่มงาน Graphic ของคุณ -->
-    <div class="add-card" onclick="alert('เพิ่มงาน Graphic โดยเพิ่ม .mitem ใน graphicMasonry\nใส่ data-gcat = package / social / promotion / branding')">
+    <!-- 🔥 PROMOTION — KC Hair Oil / MIRA (Image 13) -->
+    <div class="mitem" data-gcat="promotion">
+      <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=75" loading="lazy" alt="KC Hair"/>
+      <div class="ov"><span data-th="🔥 Promotion — KC Natural Hair Oil / MIRA" data-en="🔥 Promotion — KC Natural Hair Oil / MIRA"></span></div>
+    </div>
+
+    <!-- 📦 PACKAGE — Apodis Sunscreen / FARONG Soap (Image 14) -->
+    <div class="mitem" data-gcat="package">
+      <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=75" loading="lazy" alt="Apodis"/>
+      <div class="ov"><span data-th="📦 Package Design — Apodis Sunscreen / FARONG Soap" data-en="📦 Package Design — Apodis Sunscreen / FARONG Soap"></span></div>
+    </div>
+
+    <!-- 📦 PACKAGE — Gluta Plus / Jaya Perfume (Image 15) -->
+    <div class="mitem" data-gcat="package">
+      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=75" loading="lazy" alt="Gluta Plus"/>
+      <div class="ov"><span data-th="📦 Package Design — Gluta Plus / Jaya Perfume" data-en="📦 Package Design — Gluta Plus / Jaya Perfume"></span></div>
+    </div>
+
+    <!-- 📦 PACKAGE — QT Pink DD Cream (Image 16) -->
+    <div class="mitem" data-gcat="package">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=75" loading="lazy" alt="QT Cream"/>
+      <div class="ov"><span data-th="📦 Package Design — QT Pink DD Cream" data-en="📦 Package Design — QT Pink DD Cream"></span></div>
+    </div>
+
+    <!-- 📦 PACKAGE — JOYOUS Power Strip (Image 17) -->
+    <div class="mitem" data-gcat="package">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" loading="lazy" alt="JOYOUS"/>
+      <div class="ov"><span data-th="📦 Package Design — JOYOUS Power Strip" data-en="📦 Package Design — JOYOUS Power Strip"></span></div>
+    </div>
+
+    <!-- 📦 PACKAGE — BONTE / SHIZEN Hair Serum (Image 18) -->
+    <div class="mitem" data-gcat="package">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=75" loading="lazy" alt="Hair Serum"/>
+      <div class="ov"><span data-th="📦 Package Design — BONTE Max Lash / SHIZEN Hair Serum" data-en="📦 Package Design — BONTE Max Lash / SHIZEN Hair Serum"></span></div>
+    </div>
+
+    <!-- + เพิ่มงานจริงของคุณ -->
+    <div class="add-card" onclick="alert('แทน src ด้วย URL รูปงานจริงของคุณ\ndata-gcat = menu / social / package / promotion')">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
       <span data-th="+ เพิ่มงาน Graphic" data-en="+ Add Graphic work"></span>
     </div>
   </div>
 </div>
+
 
 
 <div class="page" id="page-videos">
