@@ -431,7 +431,7 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   padding:22px 0 18px;
   border-top:2px solid var(--ink);
   margin:0 0 24px;
-  position:sticky;top:0;background:var(--paper);z-index:5;
+  background:var(--paper);
 }
 .section-divider-label:first-child,
 .portfolio-section:first-child .section-divider-label{border-top:none;padding-top:0}
@@ -511,6 +511,18 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   .hero-stats{gap:14px}
   .stat-n{font-size:32px}
   .skills-bg{padding:22px 14px}
+}
+
+/* ── LANDSCAPE / จอเตี้ย — กันข้อมูลด้านบนหาย ── */
+@media(max-height:600px) and (orientation:landscape){
+  .page{padding-top:32px}
+  .hero{padding-top:8px}
+  h1.hero-name{font-size:clamp(40px,9vw,80px)}
+  h2.sec-title{font-size:clamp(28px,5vw,52px);margin-bottom:20px}
+}
+@media(max-width:960px) and (orientation:landscape){
+  .page{top:var(--topbar-h);padding:16px 20px 72px}
+  .sidenav{padding-top:calc(var(--topbar-h) + 12px);overflow-y:auto}
 }
 </style>
 </head>
